@@ -1,0 +1,866 @@
+/* 
+ * Overrides for Wordpresss to improve integration
+ * @author Matthias Thom | http://upplex.de
+ * @package upBootWP 0.1
+ *
+ */
+/* imported customize-bootstrap.less */
+/* here you should use whatever @font-face squirrel generated in the stylesheet.css */
+/**
+ * Overrides for Wordpresss to improve integration
+ * 
+ * @author Matthias Thom | http://upplex.de
+ * @package upBootWP 0.1
+ */
+
+// Core variables and mixins
+@import url('http://fonts.googleapis.com/css?family=Cabin:400,500,700,600,400italic,500italic,600italic,700italic');
+@import url('../bootstrap-34/less/variables.less');
+@import url('../bootstrap-34/less/mixins.less');
+
+@global-margin-top: 6%;
+@global-max-width: 1920px;
+@global-color-orange: #e49226;
+@global-color-tomato: #f15024;
+@global-color-mustard: #ecc603;
+@global-color-brown: #624700;
+@global-color-teal: #41bec0;
+
+
+@global-color-brown-alt: #604806;
+@global-color-blue-25: #dff3f7;
+@global-color-blue-50: #A6e0ed;
+@global-color-blue-75: #5fafc7;
+
+
+/***********************************
+ * Font-awesome Global Styling 
+ **********************************/
+
+.fa.fa-angle-double-right {
+    margin-left: 10px;
+}
+
+/***********************************
+ * WP Admin Bar Adjustment Styling 
+ **********************************/
+
+.admin-bar .hfeed.site {
+    margin-top: -33px;
+}
+
+.admin-bar .navbar-fixed-top {
+  top: 32px;
+  border-top: 1px solid #000000;
+   border-bottom: none;
+}
+
+/***********************************
+ * Navigation Styling 
+ **********************************/
+.home {
+	#masthead {
+		display: none;
+	}
+}
+.nav {
+	.overview-link {
+	    border-bottom: 1px solid #ccc;
+	    font-style: italic;
+	    background-color: lighten(#7cd1e4, 10%); //#b99b02;
+	}
+	&.nav-justified.aux-menu {
+	    margin: 0 auto;
+	    max-width: 980px;
+	    a {
+	    	color: @global-color-brown-alt;
+	    	&:hover {
+	    		color: #fff;
+	    	}
+	    }
+	}
+}
+
+.navbar {
+	.navbar-brand {
+	    padding: 0;
+	    margin: 15px;
+	}
+	.navbar-right {
+	    margin-top: 15px;
+	}
+	&.navbar-inverse.over-vid {
+	    border: none;
+	    border-radius: 0;
+	    left: 0;
+	    margin: 0;
+	    min-height: 45px;
+	    position: absolute;
+	    right: 0;
+	    bottom: 0;
+	}
+}
+
+.breadcrumb-container {
+    background-color: #f5f5f5;
+}
+.breadcrumb {
+    border-radius: 0;
+    margin: 0 1.95%;
+	.fa {
+		margin: 0px 4px;	
+	}
+	> li + li::before {
+		content: none;
+		padding: 0;
+	}
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    background-color: darken(#7cd1e4, 10%); // #ba9c02;
+}
+
+/*************************************************
+ * Container Styling 
+ *************************************************/
+
+.container-fluid {
+	max-width: @global-max-width;
+    width: 100%;
+	&.white {
+		background-color: #ffffff;
+		&.cta {
+			margin-top: 6%;
+		}
+		.mp-row {
+		  margin: 5.5% auto;
+		}
+		
+	}
+	&.grey {
+		background-color: @global-color-blue-25; //@global-color-teal;
+		overflow: auto;
+		.mp-row {
+			margin: 5.5% auto;
+		}
+	}
+	.mp-row {
+		margin: 0 auto;
+	}
+	.row-title {
+		padding-bottom: 3%;
+		text-align: center;
+		h1 {
+			margin: 0;
+		}
+	}
+}
+
+/*********************************************
+ * Page Styling
+ ********************************************/
+
+.home {
+	.page-header {
+		margin-top: 0;
+		.section-title {
+		    color: @global-color-tomato;
+			margin-bottom: 40px;
+		    text-align: center;
+		    text-transform: lowercase;
+		}
+	}
+	.row-title h1 {
+		color: @global-color-tomato;
+	    margin: 0;
+	}
+}
+.page, .single {
+	.page-header {
+		margin-top: 0;
+		.section-title {
+		    color: @global-color-tomato;
+		    
+		    text-align: left;
+		    text-transform: lowercase;
+		}	
+	}
+	.grey {
+		.subtitle {
+		    color: #fff;
+		}
+	}
+}
+
+.page, .single {
+    .jumbotron {
+        h1, .h1 {
+            font-size: 46px;
+        }
+        p {
+            font-size: 24px;
+        }
+        margin-bottom: 0;
+        padding: 0px;
+        position: relative;
+        .container {
+            left: 0;
+            margin: 0 auto;
+            padding: 5.5% 4.5%;
+            position: absolute;
+            right: 0;
+            top: 52px;
+            max-width: 100%;
+            width: 100%;
+            background-color: #000;
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, 0.6)), color-stop(100%, rgba(16, 17, 19, 0)));
+            background: -webkit-linear-gradient(top, rgba(16, 17, 19, 0.6), rgba(16, 17, 19, 0) 100%);
+            background: linear-gradient(to bottom, rgba(16, 17, 19, 0.6), rgba(16, 17, 19, 0) 100%);
+        }
+        h1, p {
+            color: #fff;
+        }
+    }
+}
+
+.fs-overlay {
+	height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.locationArrow {
+    bottom: 15%;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    //z-index: 50;
+    .btn {
+	    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	    border: medium none;
+	    display: block;
+	    margin: 0 auto;
+	    width: 70px;
+    	&:hover {
+			background: darken(@global-color-tomato, 20%);
+			opacity: .5;
+    	}
+    }
+	.fa-chevron-down {
+	    font-size: 38px;
+	    color: darken(#fff, 40%);
+	}
+}
+
+.nccIcon {
+   //background: rgba(0, 0, 0, 0) url("../../../../wp-content/uploads/2015/06/NPCC-logo-400x240.png") no-repeat scroll center center;
+    //height: 240px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 40%;
+    width: 100%;
+    //z-index: 50;
+    img {
+    	margin: 0 auto;
+    }
+}
+
+/*************************************************
+ * CTA Styling 
+ *************************************************/
+.cta .col-sm-6.col-md-3 {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.cta-box {
+	position: relative;
+	max-width: 500px;
+	width: 100%;
+	margin: 0px auto;
+	.title {
+	    background-color: @global-color-blue-75; //@global-color-orange;
+	    bottom: 0;
+	    left: 0;
+	    padding: 3% 5.666%;
+	    position: absolute;
+	    right: 0;
+	    text-align: right;
+	    a {
+	    	color: white;
+	    	font-size: 24px;
+	    	font-weight: 700;
+	    	&:hover {
+	    		color: @global-color-brown;
+	    		text-decoration: none;
+	    	}
+	    }
+	}
+}
+
+.video-wrap {
+    background-color: #000;
+    height: 100%;
+    max-width: @global-max-width;
+    top: 0;
+    width: 100%;
+}
+#my-video {
+	bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 11;
+}
+.content-overlay {
+    //background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+#fullscreen {
+    background-color: #000;
+    background-size: cover;
+    display: block;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+    margin: 0;
+    padding: 0;
+}
+#big-video-wrap .big-video-image {
+  	max-width: none;
+  	min-height: 100%;
+  	min-width: 100%;
+  	width: 100%;
+}
+
+.carousel {
+	.carousel-control {
+		z-index: 10;
+	}
+	.carousel-caption {
+		background-color: #000;
+		background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, 0.6)), color-stop(100%, rgba(16, 17, 19, 0)));
+		background: -webkit-linear-gradient(top, rgba(16, 17, 19, 0.6), rgba(16, 17, 19, 0) 100%);
+		background: linear-gradient(to bottom, rgba(16, 17, 19, 0.6), rgba(16, 17, 19, 0) 100%);
+		height: 100%;
+		left: 0;
+		margin: 0 auto;
+		padding-bottom: 0;
+		padding-top: 12%;
+		right: 0;
+		width: 100%;
+		h1 {
+		  color: #fff;
+		}
+	}
+}
+
+/************************************************
+ *  Content Area Styling
+ ***********************************************/
+
+.entry-content {
+	.btn {
+		margin-top: @global-margin-top;
+	}
+	> p {
+	    line-height: 1.75;
+	}
+}
+
+h1,.h1,
+h2,.h2,
+h3,.h3 {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+p.subtitle {
+    color: @global-color-teal;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+
+.blog-footer {
+  background-color: @global-color-mustard;
+  border-top: 1px solid #5b7ba6;
+  color: #999999;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.nav-previous {
+	float: left;
+}
+.nav-next {
+	float: right;
+}
+
+
+
+.panel-default > .panel-heading {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: medium none;
+}
+.panel {
+  margin-bottom: 30px;
+}
+.panel.panel-default {
+  white-space: normal;
+}
+.panel:hover {
+  background-color: #d7dde8;
+  -webkit-transition: background 500ms ease;
+  -moz-transition: background 500ms ease;
+  -ms-transition: background 500ms ease;
+  -o-transition: background 500ms ease;
+  transition: background 500ms ease;
+}
+.panel .panel-heading {
+  padding: 10px 15px 5px;
+}
+.panel .panel-body {
+  min-height: 375px;
+  position: relative;
+  padding: 10px 15px 15px;
+}
+.panel .panel-body .lead {
+  font-size: 18px;
+  line-height: inherit;
+}
+.panel .attachment-homepage-thumb.wp-post-image {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  display: inline-block;
+  height: auto;
+  line-height: 1.42857;
+  max-width: 100%;
+  padding: 4px;
+  transition: all 0.2s ease-in-out 0s;
+}
+.panel .attachment-thumbnail.wp-post-image {
+  bottom: 6px;
+  left: 30px;
+  position: absolute;
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+.panel > h2 a {
+  text-transform: uppercase;
+}
+.tagcloud {
+  padding: 0 15px;
+}
+.tagcloud a {
+  margin-right: 3px;
+}
+.tag_list {
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+.tag_list > li {
+  float: left;
+  list-style: none outside none;
+  margin: 0 3px 0 0;
+  padding: 0;
+  line-height: 18px;
+}
+.container .cycloneslider-template-standard .cycloneslider-pager span {
+  background: none repeat scroll 0 0 #42484b;
+}
+.socialNet {
+  list-style: outside none none;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+}
+.socialNet > li {
+  display: block;
+  float: left;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+.cycle-slideshow,
+.cycle-slideshow * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cycle-slideshow {
+  width: 100%;
+  min-width: 200px;
+  max-width: @global-max-width;
+  margin: 0px auto;
+  padding: 0;
+  position: relative;
+}
+.slidetiles.cycle-slide {
+  margin-left: 25px;
+  margin-right: 25px;
+  max-width: 372px;
+  overflow: hidden;
+  width: 100%;
+}
+.slidetiles .slide-txt {
+  height: 100px;
+  overflow: hidden;
+}
+.slidetiles .panel-title {
+  font-size: 22px;
+}
+.slidetiles .panel {
+  width: 100%;
+  margin-bottom: 0;
+}
+.slidetiles .panel .panel-body {
+  min-height: 300px;
+}
+.slidetiles .panel .panel-body > a {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+/* in case script does not load */
+.cycle-slideshow .slidetiles:first-child {
+  position: static;
+  z-index: 100;
+}
+.home-slideshow .slide_tile:first-child {
+  position: static;
+  z-index: 100;
+}
+.tiles .slide-txt {
+  min-height: 75px;
+  overflow: hidden;
+}
+.tiles .panel-title {
+  font-size: 22px;
+}
+/* 
+    media queries 
+    some style overrides to make things more pleasant on mobile devices
+*/
+@media (min-width: 480px) and (max-width: 800px) {
+  .slidetiles.cycle-slide {
+    max-width: 450px;
+  }
+}
+@media (min-width: 981px) and (max-width: 1024px) {
+  .slidetiles.cycle-slide {
+    width: 293px !important;
+  }
+  .slidetiles .attachment-homepage-thumb.wp-post-image {
+    left: 0;
+    right: 0;
+  }
+  .slidetiles .panel-title {
+    font-size: 20px;
+  }
+  .slidetiles .lead {
+    font-size: 14.5px;
+  }
+}
+
+@media (max-width: 980px) {
+	.cta-box {
+		margin: 0px auto 25px;
+	}
+}
+@media (max-width: 768px) {
+	.navbar {
+		.navbar-toggle {
+			margin-right: 0;
+		}
+		.dropdown-menu {
+			font-size: 16px;
+		}
+		.navbar-brand {
+			img {
+				padding-top: 2px;
+				max-width: 55%;
+			}
+		}
+	}
+	.nccIcon img {
+		width: 45%;
+	}
+	
+	.locationArrow {
+		bottom: 5%;
+	}
+	
+  	#npcc-bottom-nav {
+  		display: none;
+  	}
+	
+	body {
+		font-size: 16px;
+	}
+	
+  	h1,.h1 {
+    	font-size: 35px;
+  	}
+  	
+  	h2,.h2 {
+    	font-size: 25px;
+  	}
+
+	.container-fluid {
+		&.white {
+			margin-bottom: 6%;
+			.section-title {
+				margin-bottom: 4%;
+			}
+		}
+	}
+	
+  	p.subtitle {
+		font-size: 16px;
+	}
+	.page-header {
+		margin: 0 0 6%;
+		padding: 0 0 1%;
+	}
+	div#myCarousel {
+		margin-top: 50px;
+	}
+	.carousel p {
+	  padding:0 13% 1%;
+	}
+	.carousel-inner > .item > img {
+		max-width: 250%;
+	}
+	.carousel .carousel-caption {
+    	padding-top: 15%;
+  	}
+  	
+  	.carousel .cap-subtitle {
+    	display: none;
+  	}
+  	
+  	.page, .single {
+		.jumbotron {
+			margin: 0;
+			overflow: hidden;
+			.container {
+			    top: 0; 
+			    padding-top: 15%;
+             
+			}
+			.img-responsive {
+				max-width: 180%;
+			}
+			h1 {
+			    font-size: 35px;
+			}
+			p {
+			    font-size: 16px;
+			}
+		}
+	}
+}
+@media (max-width: 480px) {
+	body {
+		font-size: 14px;
+	}
+	h1,.h1 {
+    	font-size: 25px;
+  	}
+	h2, .h2 {
+	  font-size: 20px;
+	}
+	p.subtitle {
+		font-size: 16px;
+	}
+	.nccIcon img {
+		width: 68%;
+	}
+	
+	.page, .single {
+		.jumbotron {
+			margin: 0;
+			overflow: hidden;
+			.container {
+			    padding-top: 15%;
+			}
+			.img-responsive {
+				max-width: 180%;
+			}
+			h1 {
+			    font-size: 25px;
+			}
+			p {
+			    font-size: 16px;
+			}
+		}
+	}
+	
+	.carousel .p-btn {
+		display: none;
+	}
+	
+	.cta-box {
+		.title {
+			a {
+				font-size: 14px;
+			}
+		}
+	}
+	.container-fluid {
+		&.white {
+			.row-title {
+	  			padding: 0;
+				margin: 0;
+			}			
+		}
+	}
+	
+	.col-md-6, .col-md-12 {
+	  	padding: 0;
+	}
+
+	.slidetiles.cycle-slide {
+	    width: 263px;
+	}
+	.slidetiles .panel .panel-body {
+		min-height: 250px;
+	}
+	.slidetiles .panel-title {
+		font-size: 18px;
+	}
+	.slidetiles .lead {
+		font-size: 14px;
+	}
+}
+@media (max-width: 320px) {
+  body {
+    font-size: 16px;
+  }
+  .col-xs-1,
+  .col-sm-1,
+  .col-md-1,
+  .col-lg-1,
+  .col-xs-2,
+  .col-sm-2,
+  .col-md-2,
+  .col-lg-2,
+  .col-xs-3,
+  .col-sm-3,
+  .col-md-3,
+  .col-lg-3,
+  .col-xs-4,
+  .col-sm-4,
+  .col-md-4,
+  .col-lg-4,
+  .col-xs-5,
+  .col-sm-5,
+  .col-md-5,
+  .col-lg-5,
+  .col-xs-6,
+  .col-sm-6,
+  .col-md-6,
+  .col-lg-6,
+  .col-xs-7,
+  .col-sm-7,
+  .col-md-7,
+  .col-lg-7,
+  .col-xs-8,
+  .col-sm-8,
+  .col-md-8,
+  .col-lg-8,
+  .col-xs-9,
+  .col-sm-9,
+  .col-md-9,
+  .col-lg-9,
+  .col-xs-10,
+  .col-sm-10,
+  .col-md-10,
+  .col-lg-10,
+  .col-xs-11,
+  .col-sm-11,
+  .col-md-11,
+  .col-lg-11,
+  .col-xs-12,
+  .col-sm-12,
+  .col-md-12,
+  .col-lg-12 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .navbar-brand {
+    width: 65%;
+    margin: 1% 0 0;
+  }
+  .slidetiles.cycle-slide {
+    width: 259px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .panel .panel-body {
+    min-height: 250px;
+    padding: 10px;
+  }
+  .panel .panel-body .lead {
+    font-size: 14px;
+  }
+  .panel .panel-body .tag_list {
+    font-size: 14px;
+  }
+  .panel .panel-title {
+    font-size: 18px;
+  }
+}
+/* scroll-to-top
+----------------------------------------------------
+*/
+.scroll-to-top {
+  background: #363636;
+  background: rgba(100, 100, 100, 0.4);
+  color: #FFF;
+  bottom: 4%;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  right: 20px;
+  z-index: 999;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  -webkit-transition: background-color 0.3s linear;
+  -moz-transition: background-color 0.3s linear;
+  -o-transition: background-color 0.3s linear;
+  transition: background-color 0.3s linear;
+}
+.scroll-to-top:hover {
+  background: #DA4453;
+  opacity: .8;
+}
