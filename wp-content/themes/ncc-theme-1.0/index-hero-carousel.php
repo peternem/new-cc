@@ -1,4 +1,5 @@
-   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<section>
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -7,7 +8,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="/wp-content/uploads/2015/06/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero" alt="First slide">
+          <img class="first-slide" src="/wp-content/uploads/2015/07/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Jesus</h1>
@@ -17,7 +18,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="/wp-content/uploads/2015/06/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero=" alt="Second slide">
+          <img class="second-slide" src="/wp-content/uploads/2015/07/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero=" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Family</h1>
@@ -27,7 +28,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="/wp-content/uploads/2015/06/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero" alt="Third slide">
+          <img class="third-slide" src="/wp-content/uploads/2015/07/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Creativity</h1>
@@ -46,3 +47,4 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+</section>

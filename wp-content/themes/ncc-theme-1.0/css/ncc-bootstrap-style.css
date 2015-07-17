@@ -33,9 +33,6 @@
 /***********************************
  * Navigation Styling 
  **********************************/
-.home #masthead {
-  display: none;
-}
 .nav .overview-link {
   border-bottom: 1px solid #ccc;
   font-style: italic;
@@ -51,12 +48,19 @@
 .nav.nav-justified.aux-menu a:hover {
   color: #fff;
 }
+.navbar .navbar-toggle {
+  margin-right: 2%;
+  margin-top: 2%;
+}
 .navbar .navbar-brand {
-  padding: 0;
-  margin: 15px;
+  padding: 10px 25px;
+  overflow: auto;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
 }
 .navbar .navbar-right {
-  margin-top: 15px;
+  margin-right: auto;
 }
 .navbar.navbar-inverse.over-vid {
   border: none;
@@ -82,12 +86,19 @@
   content: none;
   padding: 0;
 }
-.dropdown-menu > li > a:hover,
-.dropdown-menu > li > a:focus {
-  background-color: #52c2db;
+/*************************************************
+ * 
+ * Button Styling
+ * 
+ *************************************************/
+.link-group {
+  padding: 6% 0;
+  width: 100%;
 }
 /*************************************************
- * Container Styling 
+ * 
+ * Container Styling
+ * 
  *************************************************/
 .container-fluid {
   max-width: 1920px;
@@ -120,8 +131,44 @@
   margin: 0;
 }
 /*********************************************
+ * 
  * Page Styling
+ * 
  ********************************************/
+.static-hero .img-responsive {
+  width: 100%;
+}
+.archive .site-footer {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  bottom: -110px;
+  width: 100%;
+}
+.archive .page-title {
+  padding-top: 6%;
+}
+.archive .content-overlay {
+  margin-bottom: 120px;
+  padding-top: 75px;
+}
+.archive .tiles p {
+  padding-top: 12.5px;
+}
+.archive .tiles .panel-body {
+  height: 475px;
+  overflow: hidden;
+}
+.home #masthead {
+  display: none;
+}
+.home .site-footer {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  bottom: -110px;
+  width: 100%;
+}
 .home .page-header {
   margin-top: 0;
 }
@@ -135,6 +182,12 @@
   color: #f15024;
   margin: 0;
 }
+.page .content-overlay,
+.single .content-overlay {
+  position: relative;
+  top: 0;
+  z-index: auto;
+}
 .page .page-header,
 .single .page-header {
   margin-top: 0;
@@ -147,32 +200,37 @@
 }
 .page .grey .subtitle,
 .single .grey .subtitle {
-  color: #fff;
+  color: #5fafc7;
 }
 .page .jumbotron,
-.single .jumbotron {
+.single .jumbotron,
+.archive .jumbotron {
   margin-bottom: 0;
   padding: 0px;
   position: relative;
 }
 .page .jumbotron h1,
 .single .jumbotron h1,
+.archive .jumbotron h1,
 .page .jumbotron .h1,
-.single .jumbotron .h1 {
+.single .jumbotron .h1,
+.archive .jumbotron .h1 {
   font-size: 46px;
 }
 .page .jumbotron p,
-.single .jumbotron p {
+.single .jumbotron p,
+.archive .jumbotron p {
   font-size: 24px;
 }
 .page .jumbotron .container,
-.single .jumbotron .container {
+.single .jumbotron .container,
+.archive .jumbotron .container {
   left: 0;
   margin: 0 auto;
   padding: 5.5% 4.5%;
   position: absolute;
   right: 0;
-  top: 52px;
+  top: 0;
   max-width: 100%;
   width: 100%;
   background-color: #000;
@@ -182,9 +240,20 @@
 }
 .page .jumbotron h1,
 .single .jumbotron h1,
+.archive .jumbotron h1,
 .page .jumbotron p,
-.single .jumbotron p {
+.single .jumbotron p,
+.archive .jumbotron p {
   color: #fff;
+  max-width: 800px;
+}
+.page .jumbotron .img-responsive,
+.single .jumbotron .img-responsive,
+.archive .jumbotron .img-responsive {
+  height: auto;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
 }
 .fs-overlay {
   height: 100%;
@@ -272,15 +341,22 @@
   top: 0;
   z-index: 11;
 }
-.content-overlay {
-  display: none;
+.home .content-overlay {
   position: absolute;
   top: 0;
   z-index: 5;
   width: 100%;
   height: 100%;
 }
-#fullscreen {
+.inner-main {
+  background-color: #fff;
+  height: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding-bottom: 200px;
+}
+.featured-image {
   background-color: #000;
   background-size: cover;
   display: block;
@@ -290,6 +366,13 @@
   z-index: 5;
   margin: 0;
   padding: 0;
+}
+.featured-image .nccIcon,
+.featured-image .locationArrow {
+  display: none;
+}
+.featured-image .nccIcon {
+  top: 50%;
 }
 #big-video-wrap .big-video-image {
   max-width: none;
@@ -317,14 +400,10 @@
   color: #fff;
 }
 /************************************************
+ * 
  *  Content Area Styling
+ * 
  ***********************************************/
-.entry-content .btn {
-  margin-top: 6%;
-}
-.entry-content > p {
-  line-height: 1.75;
-}
 h1,
 .h1,
 h2,
@@ -342,7 +421,7 @@ p.subtitle {
   line-height: 1.2;
 }
 .blog-footer {
-  background-color: #ecc603;
+  background-color: #a6e0ed;
   border-top: 1px solid #5b7ba6;
   color: #999999;
   padding: 40px 0;
@@ -502,6 +581,12 @@ p.subtitle {
 .tiles .panel-title {
   font-size: 22px;
 }
+/************************************************
+ *  Footer Area Styling
+ ***********************************************/
+.sep {
+  margin: 0px 10px;
+}
 /* 
     media queries 
     some style overrides to make things more pleasant on mobile devices
@@ -526,30 +611,130 @@ p.subtitle {
     font-size: 14.5px;
   }
 }
+@media (max-width: 1199px) and (min-width: 992px) {
+  .home #masthead {
+    display: block;
+  }
+  .navbar .navbar-brand {
+    max-width: 37%;
+  }
+  .content-overlay .nccIcon {
+    display: none;
+  }
+  .featured-image {
+    position: relative;
+  }
+  .featured-image .nccIcon {
+    display: block;
+  }
+  .featured-image .locationArrow {
+    display: none;
+  }
+  .home .content-overlay {
+    display: block;
+    position: relative;
+    top: auto;
+    z-index: auto;
+    width: 100%;
+    height: 100%;
+  }
+  .navbar.navbar-inverse.over-vid {
+    border: none;
+    border-radius: 0;
+    left: 0;
+    margin: 0;
+    min-height: 5px;
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+}
 @media (max-width: 980px) {
+  .home #masthead {
+    display: block;
+  }
+  .navbar .navbar-brand {
+    max-width: 70%;
+  }
   .cta-box {
     margin: 0px auto 25px;
   }
+  .featured-image {
+    position: relative;
+  }
+  .featured-image .nccIcon,
+  .featured-image .locationArrow {
+    display: block;
+  }
+  .home .content-overlay {
+    display: block;
+    position: relative;
+    top: auto;
+    z-index: auto;
+    width: 100%;
+    height: 100%;
+  }
+  .navbar.navbar-inverse.over-vid {
+    border: none;
+    border-radius: 0;
+    left: 0;
+    margin: 0;
+    min-height: 5px;
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+  #npcc-bottom-nav a {
+    font-size: 14px;
+    position: relative;
+    display: block;
+    padding: 3% 3%;
+    float: none;
+  }
+  .carousel-inner > .item > img {
+    max-width: 250%;
+  }
+  .archive .container-fluid.white .link-group,
+  .archive .container-fluid.grey .link-group {
+    padding-bottom: 6%;
+  }
+  .container-fluid.white {
+    margin-bottom: 6%;
+  }
+  .container-fluid.white .page-entry-content {
+    margin-bottom: 6%;
+  }
+  .container-fluid.grey {
+    padding-bottom: 6%;
+    padding-top: 6%;
+  }
+  .container-fluid.grey .link-group {
+    padding-bottom: 0;
+  }
+  .page .grey .page-header,
+  .page .white .page-header {
+    margin: 6% 0 6%;
+    padding: 0 0 1%;
+  }
 }
 @media (max-width: 768px) {
-  .navbar .navbar-toggle {
-    margin-right: 0;
+  .home #masthead {
+    display: block;
   }
   .navbar .dropdown-menu {
     font-size: 16px;
   }
-  .navbar .navbar-brand img {
-    padding-top: 2px;
-    max-width: 55%;
+  .navbar .navbar-brand {
+    max-width: 37%;
+  }
+  .menu-main-sub-nav-container {
+    display: none;
   }
   .nccIcon img {
     width: 45%;
   }
   .locationArrow {
     bottom: 5%;
-  }
-  #npcc-bottom-nav {
-    display: none;
   }
   body {
     font-size: 16px;
@@ -562,21 +747,8 @@ p.subtitle {
   .h2 {
     font-size: 25px;
   }
-  .container-fluid.white {
-    margin-bottom: 6%;
-  }
-  .container-fluid.white .section-title {
-    margin-bottom: 4%;
-  }
   p.subtitle {
     font-size: 16px;
-  }
-  .page-header {
-    margin: 0 0 6%;
-    padding: 0 0 1%;
-  }
-  div#myCarousel {
-    margin-top: 50px;
   }
   .carousel p {
     padding: 0 13% 1%;
@@ -614,6 +786,10 @@ p.subtitle {
   }
 }
 @media (max-width: 480px) {
+  .navbar .navbar-brand {
+    padding-left: 2%;
+    max-width: 50%;
+  }
   body {
     font-size: 14px;
   }
@@ -630,6 +806,12 @@ p.subtitle {
   }
   .nccIcon img {
     width: 68%;
+  }
+  .home #masthead {
+    display: block;
+  }
+  .featured-image .locationArrow {
+    display: none;
   }
   .page .jumbotron,
   .single .jumbotron {
@@ -733,10 +915,6 @@ p.subtitle {
   .col-lg-12 {
     padding-left: 10px;
     padding-right: 10px;
-  }
-  .navbar-brand {
-    width: 65%;
-    margin: 1% 0 0;
   }
   .slidetiles.cycle-slide {
     width: 259px;

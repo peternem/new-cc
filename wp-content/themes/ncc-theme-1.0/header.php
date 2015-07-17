@@ -26,42 +26,38 @@
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php bloginfo('template_url'); ?>/ico/apple-touch-icon-57-precomposed.png">
 
 <link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/ico/favicon.png">
-
-
 </head>
 
 <body <?php body_class('text-overlay-example'); ?>>
 <?php do_action( 'before' ); ?>
 
-<header id="masthead" role="banner">
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container-fluid">
-			<div class="mp-row row">
-				<div class="col-md-12 col-lg-12">
-			        <div class="navbar-header">
-			            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				            <span class="icon-bar"></span>
-				            <span class="icon-bar"></span>
-				            <span class="icon-bar"></span>
-						</button>
-			         <?php  $url = home_url(); ?> 
-			            <!-- <a href="<?php //echo esc_url( home_url( '/' ) ); ?>" title="<?php //echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"  class="navbar-brand"><?php //bloginfo( 'name' ); ?></a> -->
-			           <a href="<?php echo $url; ?>/" rel="home" class="navbar-brand"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-300x54.png" class="img-responsive" alt="NPCC" Title="NPCC"></a>
 
-					</div>
-					
-					<?php 
-					$args = array('theme_location' => 'primary', 
-								  'container_class' => 'navbar-collapse collapse', 
-								  'menu_class' => 'nav navbar-nav navbar-right',
-								  'fallback_cb' => '',
-		                          'menu_id' => 'main-menu',
-		                          'walker' => new Upbootwp_Walker_Nav_Menu()); 
-					wp_nav_menu($args);
-					?>
-				</div><!-- .col-md-12 -->
-			</div><!-- row -->
+	<nav id="masthead" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+				</button>
+	         <?php  $url = home_url(); ?> 
+	            <!-- <a href="<?php //echo esc_url( home_url( '/' ) ); ?>" title="<?php //echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"  class="navbar-brand"><?php //bloginfo( 'name' ); ?></a> -->
+	           <a href="<?php echo $url; ?>/" rel="home" class="navbar-brand"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-300x54.png" class="img-responsive" alt="NPCC" Title="NPCC"></a>
+
+			</div>
+			
+			<?php 
+			$args = array('theme_location' => 'primary', 
+						  'container_class' => 'navbar-collapse collapse', 
+						  'menu_class' => 'nav navbar-nav navbar-right',
+						  'fallback_cb' => '',
+                          'menu_id' => 'main-menu',
+                          'walker' => new Upbootwp_Walker_Nav_Menu()); 
+			wp_nav_menu($args);
+			?>
 		</div><!-- container -->
 	</nav>
-</header><!-- #masthead -->
-<div id="page" class="hfeed site">
+<?php if( is_home() ) { ?>		
+	<?php get_template_part('index-feature-image'); ?>
+<?php } ?>
+<main id="main" class="site-main content-overlay" role="main">

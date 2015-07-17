@@ -58,11 +58,7 @@
 /***********************************
  * Navigation Styling 
  **********************************/
-.home {
-	#masthead {
-		display: none;
-	}
-}
+
 .nav {
 	.overview-link {
 	    border-bottom: 1px solid #ccc;
@@ -82,12 +78,20 @@
 }
 
 .navbar {
+	.navbar-toggle {
+		margin-right: 2%;
+		margin-top: 2%;
+	}
 	.navbar-brand {
-	    padding: 0;
-	    margin: 15px;
+		padding: 10px 25px;
+		overflow: auto;
+		height: auto;
+		width: 100%;
+		max-width: 100%;
 	}
 	.navbar-right {
-	    margin-top: 15px;
+	    //smargin-top: 15px;
+	    margin-right: auto;
 	}
 	&.navbar-inverse.over-vid {
 	    border: none;
@@ -117,11 +121,25 @@
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    background-color: darken(#7cd1e4, 10%); // #ba9c02;
+    //background-color: darken(#7cd1e4, 10%); // #ba9c02;
 }
 
 /*************************************************
- * Container Styling 
+ * 
+ * Button Styling
+ * 
+ *************************************************/
+
+.link-group {
+    //background-color: #ccc;
+    padding:  @global-margin-top 0;
+    width: 100%;
+}
+
+/*************************************************
+ * 
+ * Container Styling
+ * 
  *************************************************/
 
 .container-fluid {
@@ -157,8 +175,52 @@
 }
 
 /*********************************************
+ * 
  * Page Styling
+ * 
  ********************************************/
+
+.static-hero {
+	.img-responsive {
+	  	width: 100%;
+	}
+}
+.archive {
+	.site-footer {
+		display: none;
+	    position: fixed;
+	    z-index: 5;
+	    bottom: -110px;
+	    width: 100%;
+	}
+	.page-title {
+		padding-top: 6%;
+	}
+	.content-overlay {
+	    margin-bottom: 120px;
+	    padding-top: 75px;
+	}
+	.tiles p {
+	    padding-top: 12.5px;
+	}
+	.tiles .panel-body {
+	    height: 475px;
+	    overflow: hidden;
+	}
+}
+
+.home {
+	#masthead {
+		display: none;
+	}
+	.site-footer {
+		display: none;
+	    position: fixed;
+	    z-index: 5;
+	    bottom: -110px;
+	    width: 100%;
+	}
+}
 
 .home {
 	.page-header {
@@ -175,6 +237,14 @@
 	    margin: 0;
 	}
 }
+
+.page, .single {
+	.content-overlay {
+		position: relative;
+		top: 0;
+		z-index: auto;
+	}
+}
 .page, .single {
 	.page-header {
 		margin-top: 0;
@@ -187,12 +257,12 @@
 	}
 	.grey {
 		.subtitle {
-		    color: #fff;
+		    color: @global-color-blue-75;
 		}
 	}
 }
 
-.page, .single {
+.page, .single, .archive {
     .jumbotron {
         h1, .h1 {
             font-size: 46px;
@@ -209,7 +279,7 @@
             padding: 5.5% 4.5%;
             position: absolute;
             right: 0;
-            top: 52px;
+            top: 0;
             max-width: 100%;
             width: 100%;
             background-color: #000;
@@ -219,7 +289,14 @@
         }
         h1, p {
             color: #fff;
+            max-width: 800px;
         }
+        .img-responsive {
+		    height: auto;
+		    margin: 0 auto;
+		    max-width: 1920px;
+		    width: 100%;
+		}
     }
 }
 
@@ -238,7 +315,6 @@
     left: 0;
     position: absolute;
     right: 0;
-    //z-index: 50;
     .btn {
 	    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	    border: medium none;
@@ -257,14 +333,11 @@
 }
 
 .nccIcon {
-   //background: rgba(0, 0, 0, 0) url("../../../../wp-content/uploads/2015/06/NPCC-logo-400x240.png") no-repeat scroll center center;
-    //height: 240px;
     left: 0;
     position: absolute;
     right: 0;
     bottom: 40%;
     width: 100%;
-    //z-index: 50;
     img {
     	margin: 0 auto;
     }
@@ -273,6 +346,7 @@
 /*************************************************
  * CTA Styling 
  *************************************************/
+
 .cta .col-sm-6.col-md-3 {
     padding-left: 12px;
     padding-right: 12px;
@@ -310,6 +384,7 @@
     top: 0;
     width: 100%;
 }
+
 #my-video {
 	bottom: 0;
     left: 0;
@@ -318,9 +393,8 @@
     top: 0;
     z-index: 11;
 }
-.content-overlay {
-    //background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
-    display: none;
+
+.home .content-overlay {
     position: absolute;
     top: 0;
     z-index: 5;
@@ -328,8 +402,17 @@
     height: 100%;
 }
 
-#fullscreen {
-    background-color: #000;
+.inner-main {
+	background-color: #fff;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    padding-bottom: 200px;
+}
+
+.featured-image {
+	background-color: #000;
     background-size: cover;
     display: block;
     height: 100%;
@@ -338,7 +421,14 @@
     z-index: 5;
     margin: 0;
     padding: 0;
+    .nccIcon , .locationArrow {
+    	display: none;
+    }
+    .nccIcon {
+		top: 50%;
+	}
 }
+
 #big-video-wrap .big-video-image {
   	max-width: none;
   	min-height: 100%;
@@ -369,17 +459,11 @@
 }
 
 /************************************************
+ * 
  *  Content Area Styling
+ * 
  ***********************************************/
 
-.entry-content {
-	.btn {
-		margin-top: @global-margin-top;
-	}
-	> p {
-	    line-height: 1.75;
-	}
-}
 
 h1,.h1,
 h2,.h2,
@@ -398,7 +482,7 @@ p.subtitle {
 
 
 .blog-footer {
-  background-color: @global-color-mustard;
+  background-color: @global-color-blue-50;
   border-top: 1px solid #5b7ba6;
   color: #999999;
   padding: 40px 0;
@@ -563,6 +647,16 @@ p.subtitle {
 .tiles .panel-title {
   font-size: 22px;
 }
+
+
+
+/************************************************
+ *  Footer Area Styling
+ ***********************************************/
+.sep {
+	margin: 0px 10px;
+}
+
 /* 
     media queries 
     some style overrides to make things more pleasant on mobile devices
@@ -588,25 +682,138 @@ p.subtitle {
   }
 }
 
+@media (max-width: 1199px) and (min-width: 992px) {
+	.home #masthead {
+	 	display: block;
+	}
+	.navbar {
+		.navbar-brand {
+			max-width: 37%;
+		}
+	}
+	.content-overlay .nccIcon {
+	  	display: none;
+	}
+	.featured-image {
+		position: relative;
+	}
+	.featured-image {
+		.nccIcon {
+			display:block;
+		}
+		.locationArrow {
+			display: none;
+		}
+	}
+	.home .content-overlay {
+		display: block;
+		position: relative;
+		top: auto;
+	  	z-index: auto;
+	  	width: 100%;
+	  	height: 100%;
+	}
+	.navbar.navbar-inverse.over-vid {
+		border: none;
+		border-radius: 0;
+		left: 0;
+		margin: 0;
+		min-height: 5px;
+		position: relative;
+		right: 0;
+		bottom: 0;
+	}
+}
+
+
 @media (max-width: 980px) {
+	.home #masthead {
+	 	display: block;
+	}
+	.navbar .navbar-brand {
+		max-width: 70%;
+	}
 	.cta-box {
 		margin: 0px auto 25px;
 	}
+	
+	.featured-image {
+		position: relative;
+	}
+	.featured-image .nccIcon, .featured-image .locationArrow {
+		display: block;
+	}
+	.home .content-overlay {
+		display: block;
+		position: relative;
+		top: auto;
+	  	z-index: auto;
+	  	width: 100%;
+	  	height: 100%;
+	}
+	.navbar.navbar-inverse.over-vid {
+		border: none;
+		border-radius: 0;
+		left: 0;
+		margin: 0;
+		min-height: 5px;
+		position: relative;
+		right: 0;
+		bottom: 0;
+	}
+	#npcc-bottom-nav a {
+		font-size: 14px;
+		position: relative;
+		display: block;
+		padding: 3% 3%;
+		float: none;
+	}
+	
+	.carousel-inner > .item > img {
+		max-width: 250%;
+	}
+	.archive .container-fluid.white .link-group, .archive .container-fluid.grey .link-group {
+	  padding-bottom: 6%;
+	}
+	.container-fluid {
+		&.white {
+			margin-bottom: @global-margin-top;
+			.page-entry-content {
+				 margin-bottom: @global-margin-top;
+			}
+		}
+		&.grey {
+			padding-bottom:  @global-margin-top;
+			padding-top:  @global-margin-top;
+			.link-group {
+				padding-bottom: 0;
+			}
+		}
+	}
+	.page {
+		.grey, .white {
+			.page-header {
+				margin: @global-margin-top 0 @global-margin-top;
+				padding: 0 0 1%;
+			}			
+		}
+	}
+
 }
 @media (max-width: 768px) {
+	.home #masthead {
+	 	display: block;
+	}
 	.navbar {
-		.navbar-toggle {
-			margin-right: 0;
-		}
 		.dropdown-menu {
 			font-size: 16px;
 		}
 		.navbar-brand {
-			img {
-				padding-top: 2px;
-				max-width: 55%;
-			}
+			max-width: 37%;
 		}
+	}
+	.menu-main-sub-nav-container {
+	  	display: none;
 	}
 	.nccIcon img {
 		width: 45%;
@@ -615,10 +822,6 @@ p.subtitle {
 	.locationArrow {
 		bottom: 5%;
 	}
-	
-  	#npcc-bottom-nav {
-  		display: none;
-  	}
 	
 	body {
 		font-size: 16px;
@@ -632,25 +835,12 @@ p.subtitle {
     	font-size: 25px;
   	}
 
-	.container-fluid {
-		&.white {
-			margin-bottom: 6%;
-			.section-title {
-				margin-bottom: 4%;
-			}
-		}
-	}
-	
   	p.subtitle {
 		font-size: 16px;
 	}
-	.page-header {
-		margin: 0 0 6%;
-		padding: 0 0 1%;
-	}
-	div#myCarousel {
-		margin-top: 50px;
-	}
+	
+	
+	
 	.carousel p {
 	  padding:0 13% 1%;
 	}
@@ -687,6 +877,10 @@ p.subtitle {
 	}
 }
 @media (max-width: 480px) {
+	.navbar .navbar-brand {
+		padding-left: 2%;
+		max-width: 50%;
+	}
 	body {
 		font-size: 14px;
 	}
@@ -702,7 +896,15 @@ p.subtitle {
 	.nccIcon img {
 		width: 68%;
 	}
+	.home #masthead {
+	  display: block;
+	}
 	
+	.featured-image {
+		.locationArrow {
+			display: none;
+		}
+	}
 	.page, .single {
 		.jumbotron {
 			margin: 0;
@@ -814,10 +1016,7 @@ p.subtitle {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .navbar-brand {
-    width: 65%;
-    margin: 1% 0 0;
-  }
+
   .slidetiles.cycle-slide {
     width: 259px;
     margin-left: 10px;

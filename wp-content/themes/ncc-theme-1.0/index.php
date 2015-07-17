@@ -12,75 +12,55 @@
  * @package upBootWP 0.1
  */
                 
-                get_header(); ?>
-                
-                                    
-				<div id="primary" class="content-area">
-		
-					<main id="main" class="site-main" role="main">
+get_header(); ?>
+            
+<?php if ( have_posts() ) : ?>
+	<?php if( is_home() ) { ?>           
 
-					<?php if ( have_posts() ) : ?>
-					    <?php if( is_home() ) { ?>
-				
-                            <?php get_template_part('index-feature-image'); ?>
-                
-                       <div class="content-overlay">
-                            <div class="nccIcon"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-600x108.png" class="img-responsive"></div>
-                                <div class="locationArrow"><a id="about" class="btn btn-primary btn-lg" href="#cta" role="button"><i class="fa fa-chevron-down"></i></a></div>
-                                <nav id="npcc-bottom-nav" class="navbar navbar-inverse over-vid" role="navigation">
-                                <?php 
-                                $args = array('theme_location' => 'secondary', 
-                                              'container_class' => '', 
-                                              'menu_class' => 'nav nav-justified aux-menu',
-                                              'fallback_cb' => '',
-                                              'menu_id' => '',
-                                              'walker' => new Upbootwp_Walker_Nav_Menu()); 
-                                wp_nav_menu($args);
-                                ?>
-                                </nav>
-                                <div style="height: auto; width: 100%; position: absolute; top: 100%; background-color: #fff;">
-                                    <?php get_template_part('index-hero-carousel'); ?>
-             
-                                    <section id="cta" class="content-area container-fluid white cta">
-                                        <?php get_template_part('index-call-to-action'); ?>
-                                    </section>
-                                    
-                                    <section id="aboutUs" class="content-area container-fluid white">
-                                        <?php get_template_part('index-about-us'); ?>
-                                    </section>
-                                    <!-- About Section -->
-                                    <section id="recent-work-web" class="content-area container-fluid grey">
-                                        <?php get_template_part('index-recent-web-carousel'); ?>
-                                    </section>
-                                    <section id="intro-about" class="content-area container-fluid white">
-                                        <?php get_template_part('index-about-site'); ?>
-                                    </section>
-                                    <section id="recent-work-print" class="content-area container-fluid grey">
-                                        <?php get_template_part('index-recent-print-carousel'); ?>
-                                    </section>
-                                    
-                                </div>
-                            
-                        </div>
-                        <?php } else { ?>
+	<div class="nccIcon"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-600x108.png" class="img-responsive"></div>
+	<div class="locationArrow"><a id="learnMore" class="btn btn-primary btn-lg" href="#cta" role="button"><i class="fa fa-chevron-down"></i></a></div>
+	<nav id="npcc-bottom-nav" class="navbar navbar-inverse over-vid" role="navigation">
+	<?php 
+	$args = array('theme_location' => 'secondary', 
+		'container_class' => '', 
+		'menu_class' => 'nav nav-justified aux-menu',
+		'fallback_cb' => '',
+		'menu_id' => '',
+		'walker' => new Upbootwp_Walker_Nav_Menu()); 
+	wp_nav_menu($args);
+	?>
+	</nav>
+    <div class="inner-main">
+		<?php get_template_part('index-hero-carousel'); ?>     
+		<section id="cta" class="content-area container-fluid white cta">
+		    <?php get_template_part('index-call-to-action'); ?>
+		</section>
+		<section id="aboutUs" class="content-area container-fluid white">
+		    <?php get_template_part('index-about-us'); ?>
+		</section>
+		<section id="recent-work-web" class="content-area container-fluid grey">
+		    <?php get_template_part('index-recent-web-carousel'); ?>
+		</section>
+		<section id="intro-about" class="content-area container-fluid white">
+		    <?php get_template_part('index-about-site'); ?>
+		</section>
+		<section id="recent-work-print" class="content-area container-fluid grey">
+		    <?php get_template_part('index-recent-print-carousel'); ?>
+		</section>
+	</div>
+
+<?php } else { ?>
 					
-    						<?php while ( have_posts() ) : the_post(); ?>
-    			
-    							<?php get_template_part('content', get_post_format()); ?>
-                            <div id="intro-about" class="content-area container-fluid white">
-                                <?php get_sidebar('mp-footer'); ?>
-                            </div>
-    						<?php endwhile; ?>
-    			
-    						<?php upbootwp_content_nav('nav-below'); ?>
-    
-                        <?php } ?>
-					<?php else : ?>
-						<?php get_template_part( 'no-results', 'index' ); ?>
-
-					<?php endif; ?>
-			                
-					</main><!-- #main -->
-				</div><!-- #primary -->
+	<?php while ( have_posts() ) : the_post(); ?>
+		<?php get_template_part('content', get_post_format()); ?>
+		<div id="intro-about" class="content-area container-fluid white">
+			<?php get_sidebar('mp-footer'); ?>
+		</div>
+	<?php endwhile; ?>
+	<?php upbootwp_content_nav('nav-below'); ?>
+<?php } ?>
+<?php else : ?>
+	<?php get_template_part( 'no-results', 'index' ); ?>
+<?php endif; ?>
 
 <?php get_footer(); ?>

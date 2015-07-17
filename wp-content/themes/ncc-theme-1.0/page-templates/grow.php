@@ -43,7 +43,7 @@ get_header(); ?>
 		)); ?>		
 </div>
 <?php 
-$catName =  get_cat_ID("Who We Are");
+$catName =  get_cat_ID("Grow");
 $pgName = 'print-portfolio';
 $args = array( 
     'post_type' => 'post',
@@ -52,6 +52,8 @@ $args = array(
     'orderby' => 'post_date',
     'order' => 'date' , //ASC//DESC
     'cat' => $catName,
+	'category__not_in' => array( 7,9 )
+	
 );
         
 $wp_query = new WP_Query($args);
@@ -75,9 +77,6 @@ while ( have_posts() ) : the_post(); ?>
             </header>
             <div class="entry-content">
                 <?php the_content(); ?>
-                <div class="link-group">
-					<a class="btn btn-primary" href="<?php the_permalink(); ?>" id="post-<?php the_ID(); ?>">View details <i class="fa fa-angle-double-right"></i></a>
-				</div>
 				<p>
 				<?php edit_post_link( __( '<i class="fa fa-pencil-square-o"></i> Edit Post', 'upbootwp' ), '<span class="edit-link">', '</span>' ); ?>
                 </p>
@@ -110,7 +109,6 @@ while ( have_posts() ) : the_post(); ?>
 				</div>
 				<p>
 				<?php edit_post_link( __( '<i class="fa fa-pencil-square-o"></i> Edit Post', 'upbootwp' ), '<span class="edit-link">', '</span>' ); ?>
-                </p>
                 </p>
             </div>
         </div>         

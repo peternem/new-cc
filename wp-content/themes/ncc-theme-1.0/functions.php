@@ -37,12 +37,12 @@ function upbootwp_setup() {
 	 */
 	add_theme_support( 'post-thumbnails', array( 'post' ) );          // Posts only
 	add_theme_support( 'post-thumbnails', array( 'page' ) );
-	add_image_size( 'careers-featured', 1500, 980, true );
-    add_image_size( 'careers-featured-narrow', 2500, 700, array( 'left', 'top' ) );
+	add_image_size( 'careers-featured', 1600, 600, true );
+    add_image_size( 'careers-featured-narrow', 1920, 700, array( 'left', 'top' ) );
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'homepage-thumb', 300, 200, array( 'left', 'top' )  ); // Hard crop left top
-	add_image_size( 'homepage-thumb-port', 350, 350,  array( 'left', 'top' ));
-	add_image_size( 'homepage-thumb-land', 350, 188,  array( 'left', 'top' ));
+	add_image_size( 'homepage-thumb', 300, 300, array( 'left', 'top' )  ); // Hard crop left top
+	add_image_size( 'homepage-thumb-port', 578, 578,  array( 'left', 'top' ));
+	add_image_size( 'homepage-thumb-land', 885, 578,  array( 'left', 'top' ));
 	
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'Bootstrap WP Primary' ),
@@ -155,7 +155,7 @@ function query_post_type($query) {
 
 
 function new_excerpt_more( $more ) {
-	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . __('Read More', 'your-text-domain') . '</a>';
+	return ' <a class="readmore" href="'. get_permalink( get_the_ID() ) . '">' . __('...', 'your-text-domain') . '</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
