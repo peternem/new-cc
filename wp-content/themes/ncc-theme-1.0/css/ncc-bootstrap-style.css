@@ -86,6 +86,15 @@
   content: none;
   padding: 0;
 }
+.post-navigation {
+  margin-bottom: 2%;
+}
+.post-navigation .row {
+  margin: 0 auto;
+}
+.post-navigation h4 {
+  margin-bottom: 2%;
+}
 /*************************************************
  * 
  * Button Styling
