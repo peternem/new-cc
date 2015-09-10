@@ -28,7 +28,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 */
 	function special_nav_class($classes, $item){
 		if(in_array('current-menu-item', $classes)){
-			$classes[] = 'active ';
+			$classes[] = '';
 		}
 		return $classes;
 	}
@@ -68,7 +68,7 @@ class Upbootwp_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = ($args->has_children) ? 'dropdown' : '';
-		$classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
+		$classes[] = ($item->current || $item->current_item_ancestor) ? '' : '';
 		$classes[] = 'menu-item-' . $item->ID;
 
 

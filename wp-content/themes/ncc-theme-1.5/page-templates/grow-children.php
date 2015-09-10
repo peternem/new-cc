@@ -1,49 +1,27 @@
 <?php
 /**
- * Template Name: Grow
+ * Template Name: Grow - Chldren
  * The template used for displaying page content in page.php
  *
  * @author Matthias Thom | http://upplex.de
  * @package upBootWP 0.1
  */
 get_header(); ?>
+<?php while (have_posts()) : the_post(); ?>
  <?php if( is_page()) { ?> 
 <?php get_template_part('content-featured-image'); ?>
 <?php } ?>
 <div class="breadcrumb-container">
     <?php if(function_exists('upbootwp_breadcrumbs')) upbootwp_breadcrumbs(); ?>
 </div>
-<?php while (have_posts()) : the_post(); ?>
-<div class="container-fluid white">
-	<div class="mp-row row">
-		<div class="col-md-6">
-			<header class="entry-header page-header">
-				<h1 class="section-title"><?php the_title(); ?></h1>
-				<?php if(function_exists('the_subtitle')) the_subtitle( '<p class="subtitle">', '</p>');?>
-			</header>
-			<div class="page-entry-content entry-content">
-                <?php the_content(); ?>
-            </div>
-            <footer class="entry-meta">
-            <?php edit_post_link( __( '<i class="fa fa-pencil-square-o"></i> Edit Page', 'upbootwp' ), '<span class="edit-link">', '</span>' ); ?>
-            </footer>
-		</div>
-		<?php
-		// Advanced Custom Fieldset 
-		if(get_field('page_image_right')){
-			echo '<div class="col-md-6"><img class="img-thumbnail" src="'.get_field('page_image_right').'"/></div>';
-		}
-		?>
-	</div>
-	<?php endwhile; // end of the loop. ?>
-	<?php
-		wp_link_pages(array(
-			'before' => '<div class="page-links">'.__('Pages:', 'upbootwp'),
-			'after'  => '</div>',
-		)); ?>		
-</div>
+<?php endwhile; // end of the loop. ?>
+<?php
+wp_link_pages(array(
+	'before' => '<div class="page-links">'.__('Pages:', 'upbootwp'),
+	'after'  => '</div>',
+)); ?>		
 <?php 
-$catName =  get_cat_ID("Grow");
+$catName =  get_cat_ID("Children");
 $pgName = 'print-portfolio';
 $args = array( 
     'post_type' => 'post',
@@ -61,7 +39,7 @@ $postx_counter = 0;
 while ( have_posts() ) : the_post(); ?>
 <?php $postx_counter++;  ?>
 
-<div class="container-fluid <?php echo $colour = ( $postx_counter %2 == 0 ) ? "white" : "grey";?>" data-post-count="<?php echo $postx_counter ?>">
+<div class="container-fluid <?php echo $colour = ( $postx_counter %2 == 0 ) ? "grey" : "white";?>" data-post-count="<?php echo $postx_counter ?>">
     <section class="mp-row row">
         <!-- <div class="row-title col-md-12">
             <h1 class="section-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>

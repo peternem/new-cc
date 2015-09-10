@@ -1,7 +1,7 @@
 // JavaScript Document
 jQuery(document).ready(function() {
-	initCycle();
 	
+	//jQuery('#main-menu .menu-item').first().addClass('active');
     /* ===========  VIDEO PLAYER  ================== */
 	
     jQuery(function() {
@@ -53,27 +53,20 @@ jQuery(document).ready(function() {
 
     jQuery(document).scroll(function() {
     	var widthx = jQuery(document).width();
-    	console.log(widthx);
+    	//console.log(widthx);
     	//jQuery('#masthead').toggle(jQuery(this).scrollTop() > (vidHeight - 50));
     	if ( widthx >= 1199 ) {
     		jQuery('.home #masthead').toggle(jQuery(this).scrollTop() > (vidHeight - 50));
     	}
 	});
     
-//    jQuery(window).scroll(function() {
-//	  if (jQuery(this).scrollTop() == 0) {
-//		  jQuery("#globalFooter").slideUp();
-//	      }
-//	  else {
-//		  jQuery("#globalFooter").slideDown();
-//	      }
-//    });
+
 	var footer = jQuery('#globalFooter'),
     extra = 10; // In case you want to trigger it a bit sooner than exactly at the bottom.
 	footer.css({ opacity: '0', display: 'block' });
 	jQuery(window).scroll(function() {
 		var scrolledLength = (jQuery(window).height() + extra ) + jQuery(window).scrollTop(), documentHeight = jQuery(document).height();
-		console.log( 'Scroll length: ' + scrolledLength + ' Document height: ' + documentHeight )
+		//console.log( 'Scroll length: ' + scrolledLength + ' Document height: ' + documentHeight )
 		if( scrolledLength >= documentHeight ) {
 			footer.addClass('bottom').stop().animate({ bottom: '0', opacity: '1' }, 300);
 		} else if ( scrolledLength <= documentHeight && footer.hasClass('bottom') ) {
@@ -81,79 +74,3 @@ jQuery(document).ready(function() {
 		}
 	});
 });
-
-
-/**************************************************
- * Begin - Home Page SCOC-RadTiles
- *************************************************/
-
-//window.onload = function(){
-	//var car_w= jQuery('.slideshow_cycle').width();
-	//jQuery('.slideshow_header').css ("width", car_w);
-//}
-
-var slideTime = 8000;
-function initCycle() {
-    var width = jQuery(document).width(); // Getting the width and checking my layout
-   
-    if ( width < 768 ) {
-        jQuery('.cycle-slideshow').cycle({
-            fx: 'carousel',
-            speed: 600,
-            timeout: slideTime,
-            slides: 'div.slidetiles',
-            carouselVisible: 1,
-            //carouselDimension: '366px'
-        });
-
-    } else if ( width > 768 && width < 980 ) {  
-    	jQuery('.cycle-slideshow').cycle({
-            fx: 'carousel',
-            speed: 600,
-            timeout: slideTime,
-            slides: 'div.slidetiles',
-            carouselVisible: 2,
-            //carouselDimension: '366px'
-        });
-    } else {
-    	jQuery('.cycle-slideshow').cycle({
-            fx: 'carousel',
-            speed: 600,
-            timeout: slideTime,
-            slides: 'div.slidetiles',
-            carouselVisible: 3,
-            //carouselDimension: '366px'
-        });
-    }
-}
-
-
-function reinit_cycle() {
-    var width = jQuery(window).width(); // Checking size again after window resize
-    if ( width < 768 ) {
-    	jQuery('.cycle-slideshow').cycle('destroy');
-        reinitCycle(1);
-    } else if ( width > 768 && width < 980 ) {
-    	jQuery('.cycle-slideshow').cycle('destroy');
-        reinitCycle(2);
-    } else {
-    	jQuery('.cycle-slideshow').cycle('destroy');
-        reinitCycle(3);
-    }
-}
-function reinitCycle(visibleSlides) {
-	jQuery('.cycle-slideshow').cycle({
-        fx: 'carousel',
-        speed: 600,
-        timeout: slideTime,
-        slides: 'div.slidetiles',
-        carouselVisible: visibleSlides,
-        carouselDimension: '366px'
-    });
-}
-var reinitTimer;
-jQuery(window).resize(function() {
-    clearTimeout(reinitTimer);
-    reinitTimer = setTimeout(reinit_cycle, 100); // Timeout limits the number of calculations   
-});
-

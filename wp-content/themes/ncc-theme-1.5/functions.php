@@ -37,8 +37,8 @@ function upbootwp_setup() {
 	 */
 	add_theme_support( 'post-thumbnails', array( 'post' ) );          // Posts only
 	add_theme_support( 'post-thumbnails', array( 'page' ) );
-	add_image_size( 'careers-featured', 1600, 600, true );
-    add_image_size( 'careers-featured-narrow', 1920, 700, array( 'left', 'top' ) );
+	add_image_size( 'careers-featured', 1920, 1080, true );
+    add_image_size( 'careers-featured-narrow', 1920, 768, array( 'left', 'top' ) );
 	add_theme_support( 'post-thumbnails' );
 	add_image_size( 'homepage-thumb', 300, 300, array( 'left', 'top' )  ); // Hard crop left top
 	add_image_size( 'homepage-thumb-port', 578, 578,  array( 'left', 'top' ));
@@ -61,9 +61,15 @@ function upbootwp_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	)));
-	
-	
 }
+
+
+// Add Class to All Excerpts in WordPress
+add_filter( "the_excerpt", "add_class_to_excerpt" );
+function add_class_to_excerpt( $excerpt ) {
+	return str_replace('<p', '<p class="excerpt"', $excerpt);
+}
+
 
 /*
  * 
