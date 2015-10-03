@@ -42,7 +42,7 @@
 				</button>
 	         <?php  $url = home_url(); ?> 
 	            <!-- <a href="<?php //echo esc_url( home_url( '/' ) ); ?>" title="<?php //echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"  class="navbar-brand"><?php //bloginfo( 'name' ); ?></a> -->
-	           <a href="<?php echo $url; ?>/" rel="home" class="navbar-brand"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-300x54.png" class="img-responsive" alt="NPCC" Title="NPCC"></a>
+	           <a href="<?php echo $url; ?>/" rel="home" class="navbar-brand"><img src="/wp-content/uploads/2015/09/NCClogo091815-258x.png" class="img-responsive" alt="NPCC" Title="NPCC"></a>
 
 			</div>
 			

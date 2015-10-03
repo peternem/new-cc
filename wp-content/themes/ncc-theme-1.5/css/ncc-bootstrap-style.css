@@ -30,6 +30,12 @@
   border-top: 1px solid #000000;
   border-bottom: none;
 }
+.admin-bar .site-main {
+  padding-top: 55px;
+}
+.site-main {
+  padding-top: 65px;
+}
 /***********************************
  * Navigation Styling 
  **********************************/
@@ -80,6 +86,7 @@
 .breadcrumb {
   border-radius: 0;
   margin: 0 1.95%;
+  max-width: 1920px;
 }
 .breadcrumb .fa {
   margin: 0px 4px;
@@ -197,13 +204,23 @@
   color: #f15024;
   margin: 0;
 }
+.page .site-footer {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  bottom: -110px;
+  width: 100%;
+}
 .page .content-overlay,
 .single .content-overlay {
+  margin-bottom: 50px;
   position: relative;
   top: 0;
   z-index: auto;
 }
-.page .fixed.img-responsive {
+.page .fixed.img-responsive,
+.single .fixed.img-responsive,
+.archive .fixed.img-responsive {
   height: auto;
   left: 0;
   position: fixed;
@@ -212,10 +229,26 @@
 }
 .page .page-header,
 .single .page-header {
+  border-bottom: 1px solid #eeeeee;
   margin-top: 0;
 }
 .page .page-header .section-title,
 .single .page-header .section-title {
+  text-align: left;
+  text-transform: lowercase;
+}
+.page .page-header .subtitle,
+.single .page-header .subtitle {
+  color: #e6e6e6;
+}
+.page .entry-header,
+.single .entry-header {
+  border-bottom: 1px solid #eeeeee;
+  margin: 0 0 25px;
+  padding-bottom: 11.5px;
+}
+.page .entry-header .section-title,
+.single .entry-header .section-title {
   color: #f15024;
   text-align: left;
   text-transform: lowercase;
@@ -290,23 +323,30 @@
 .page .jumbotron p,
 .single .jumbotron p,
 .archive .jumbotron p {
-  font-size: 24px;
+  font-size: inherit;
 }
-.page .jumbotron .container,
-.single .jumbotron .container,
-.archive .jumbotron .container {
+.page .jumbotron .container-fluid,
+.single .jumbotron .container-fluid,
+.archive .jumbotron .container-fluid {
+  bottom: 0;
   left: 0;
   margin: 0 auto;
-  padding: 5.5% 4.5%;
   position: absolute;
   right: 0;
   top: 0;
   max-width: 100%;
   width: 100%;
   background-color: #000;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, 0.55)), color-stop(100%, rgba(16, 17, 19, 0)));
-  background: -webkit-linear-gradient(top, rgba(16, 17, 19, 0.55), rgba(16, 17, 19, 0) 100%);
-  background: linear-gradient(to bottom, rgba(16, 17, 19, 0.55), rgba(16, 17, 19, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, 0.55)), color-stop(100%, rgba(16, 17, 19, 0.25)));
+  background: -webkit-linear-gradient(top, rgba(16, 17, 19, 0.55), rgba(16, 17, 19, 0.25) 100%);
+  background: linear-gradient(to bottom, rgba(16, 17, 19, 0.55), rgba(16, 17, 19, 0.25) 100%);
+}
+.page .jumbotron .caption,
+.single .jumbotron .caption,
+.archive .jumbotron .caption {
+  max-width: 980px;
+  padding: 5.5% 25px;
+  width: 100%;
 }
 .page .jumbotron h1,
 .single .jumbotron h1,
@@ -396,6 +436,33 @@
   color: #624700;
   text-decoration: none;
 }
+/* Grayscale Rollover effect.  Also uses greyscale-functions, imagesloaded js scripts
+ * For effect to work css class name of '.grayscale' must be added to parent element of targeted image.
+------------------------------------------------*/
+.grayscale img {
+  -webkit-filter: grayscale(70%);
+  /* Webkit Nightlies & Google Chrome Canary */
+  -webkit-transition: all 0.3s ease-in-out;
+  /* Fade to color for Chrome and Safari */
+  -webkit-backface-visibility: hidden;
+  /* Fix for transition flickering */
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\"pictureFilter\" ><feColorMatrix type=\"saturate\" values=\"0.3\" /></filter></svg>#pictureFilter");
+  /* Firefox 10+, Firefox on Android */
+  filter: gray(70%);
+  /* IE8-9 */
+}
+.grayscale img:hover {
+  -webkit-filter: grayscale(0%);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  filter: grayscale(0%);
+  /* Applies to FF + IE */
+}
 .tile {
   position: relative;
   max-width: 175px;
@@ -412,10 +479,15 @@
   right: 0;
   text-align: right;
 }
+.tile .title:hover {
+  background-color: #abd5e1;
+}
 .tile .title a {
   color: white;
   font-size: 16px;
   font-weight: 400;
+  display: inline-block;
+  width: 100%;
 }
 .tile .title a:hover {
   color: #624700;
@@ -508,7 +580,7 @@ h3,
   margin-bottom: 10px;
   margin-top: 20px;
 }
-p.subtitle {
+.subtitle {
   color: #41bec0;
   font-size: 27px;
   font-style: italic;

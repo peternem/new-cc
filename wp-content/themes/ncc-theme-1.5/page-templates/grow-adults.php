@@ -47,7 +47,7 @@ while ( have_posts() ) : the_post(); ?>
         
         <?php if ($postx_counter %2 == 0) { ?>
         <div class="col-md-6">
-            <header class="entry-header page-header">
+            <header class="entry-header">
                 <h1 class="section-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <?php if(function_exists('the_subtitle')) { ?>
                 <p class="subtitle"><?php echo the_subtitle();?></p>
@@ -74,7 +74,7 @@ while ( have_posts() ) : the_post(); ?>
             <?php } ?>
         </div>   
         <div class="col-md-6">
-            <header class="entry-header page-header">
+            <header class="entry-header">
                 <h1 class="section-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
                 <?php if(function_exists('the_subtitle')) { ?>
                 <p class="subtitle"><?php echo the_subtitle();?></p>

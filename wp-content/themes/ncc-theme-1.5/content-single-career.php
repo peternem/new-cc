@@ -8,7 +8,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 		<div class="col-md-12 col-lg-12">
-			<header class="entry-header  page-header">
+			<header class="entry-header">
 				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<?php if(function_exists('the_subtitle')) the_subtitle( '<h2 class="subtitle">', '</h2>');?>
 			</header><!-- .entry-header -->

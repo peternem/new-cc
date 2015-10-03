@@ -27,6 +27,7 @@
 @global-color-teal: #41bec0;
 
 @global-filter-alpha: 0.55;
+@global-tfilter-alpha: 0.25;
 
 
 @global-color-brown-alt: #604806;
@@ -55,6 +56,14 @@
   top: 32px;
   border-top: 1px solid #000000;
    border-bottom: none;
+}
+
+.admin-bar .site-main {
+    padding-top: 55px;
+}
+
+.site-main {
+    padding-top: 65px;
 }
 
 /***********************************
@@ -114,6 +123,7 @@
 .breadcrumb {
     border-radius: 0;
     margin: 0 1.95%;
+    max-width: 1920px;
 	.fa {
 		margin: 0px 4px;	
 	}
@@ -259,15 +269,26 @@
 	}
 }
 
+.page {
+	.site-footer {
+		display: none;
+	    position: fixed;
+	    z-index: 5;
+	    bottom: -110px;
+	    width: 100%;
+	}
+}
+
 .page, .single {
 	.content-overlay {
+		margin-bottom: 50px;
 		position: relative;
 		top: 0;
 		z-index: auto;
 	}
 }
 
-.page {
+.page, .single, .archive {
 	.fixed.img-responsive {
 	    height: auto;
 	    left: 0;
@@ -279,10 +300,23 @@
 
 .page, .single {
 	.page-header {
+		border-bottom: 1px solid #eeeeee;
 		margin-top: 0;
 		.section-title {
+		    //color: @global-color-tomato;
+		    text-align: left;
+		    text-transform: lowercase;
+		}
+		.subtitle {
+			color: darken(#fff, 10%);
+		}	
+	}
+	.entry-header {
+		border-bottom: 1px solid #eeeeee;
+		margin: 0 0 25px;
+		padding-bottom: 11.5px;
+		.section-title {
 		    color: @global-color-tomato;
-		    
 		    text-align: left;
 		    text-transform: lowercase;
 		}	
@@ -361,23 +395,28 @@
             font-size: 46px;
         }
         p {
-            font-size: 24px;
+            font-size: inherit;
         }
 	   
-        .container {
+        .container-fluid {
+        	bottom: 0;
             left: 0;
             margin: 0 auto;
-            padding: 5.5% 4.5%;
             position: absolute;
             right: 0;
             top: 0;
             max-width: 100%;
             width: 100%;
             background-color: #000;
-            background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, @global-filter-alpha)), color-stop(100%, rgba(16, 17, 19, 0)));
-            background: -webkit-linear-gradient(top, rgba(16, 17, 19, @global-filter-alpha), rgba(16, 17, 19, 0) 100%);
-            background: linear-gradient(to bottom, rgba(16, 17, 19, @global-filter-alpha), rgba(16, 17, 19, 0) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, @global-filter-alpha)), color-stop(100%, rgba(16, 17, 19, 0.25)));
+            background: -webkit-linear-gradient(top, rgba(16, 17, 19, @global-filter-alpha), rgba(16, 17, 19,0.25) 100%);
+            background: linear-gradient(to bottom, rgba(16, 17, 19, @global-filter-alpha), rgba(16, 17, 19, 0.25) 100%);
         }
+        .caption {
+		    max-width: 980px;
+		    padding: 5.5% 25px;
+		    width: 100%;
+		}
         h1, p {
             color: #fff;
             max-width: 800px;
@@ -468,12 +507,46 @@
 	}
 }
 
+/* Grayscale Rollover effect.  Also uses greyscale-functions, imagesloaded js scripts
+ * For effect to work css class name of '.grayscale' must be added to parent element of targeted image.
+------------------------------------------------*/
+
+.grayscale img {
+    -webkit-filter: grayscale(70%); /* Webkit Nightlies & Google Chrome Canary */
+    -webkit-transition: all .3s ease-in-out;/* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden; /* Fix for transition flickering */
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\"pictureFilter\" ><feColorMatrix type=\"saturate\" values=\"0.3\" /></filter></svg>#pictureFilter"); /* Firefox 10+, Firefox on Android */
+    filter: gray(70%); /* IE8-9 */
+}
+.grayscale img:hover {
+    -webkit-filter: grayscale(0%);
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    filter:  grayscale(0%); /* Applies to FF + IE */
+}
+
 .tile {
 	position: relative;
 	max-width: 175px;
 	width: 100%;
 	margin: 1.75% 2.5%;
 	display: inline-block;
+	// .t-filter {
+		// left: 0;
+	    // position: absolute;
+	    // right: 0;
+	    // top: 0;
+	    // bottom: 0;	
+			// background: none;
+			// background: -webkit-gradient(linear, left top, left bottom, from(rgba(16, 17, 19, @global-tfilter-alpha)), color-stop(100%, rgba(16, 17, 19, @global-tfilter-alpha)));
+			// background: -webkit-linear-gradient(top, rgba(16, 17, 19, @global-tfilter-alpha), rgba(16, 17, 19, @global-tfilter-alpha) 100%);
+			// background: linear-gradient(to bottom, rgba(16, 17, 19, @global-tfilter-alpha), rgba(16, 17, 19, @global-tfilter-alpha) 100%);
+	// }
 	.title {
 	    background-color: @global-color-blue-75; //@global-color-orange;
 	    bottom: 0;
@@ -482,13 +555,19 @@
 	    position: absolute;
 	    right: 0;
 	    text-align: right;
+	    &:hover {
+			 background-color: lighten(@global-color-blue-75, 20%); //@global-color-orange;
+		}
 	    a {
-	    	color: white;
-	    	font-size: 16px;
-	    	font-weight: 400;
+		    color: white;
+		    font-size: 16px;
+		    font-weight: 400;
+		    display: inline-block;
+		    width: 100%;
 	    	&:hover {
 	    		color: @global-color-brown;
 	    		text-decoration: none;
+	    		
 	    	}
 	    }
 	}
@@ -589,7 +668,7 @@ h3,.h3 {
   margin-top: 20px;
 }
 
-p.subtitle {
+.subtitle {
     color: @global-color-teal;
     font-size: @jumbotron-font-size;
     font-style: italic;

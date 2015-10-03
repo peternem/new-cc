@@ -9,9 +9,9 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
 		<div class="col-md-6">
-			<header class="entry-header page-header">
+			<header class="entry-header">
 				<h1 class="section-title"><?php the_title(); ?></h1>
-				<?php if(function_exists('the_subtitle')) the_subtitle( '<p class="subtitle">', '</p>');?>
+				<?php if(function_exists('the_subtitle')) the_subtitle( '<h2 class="subtitle">', '</h2>');?>
 <?php
 $categories = get_the_category();
 $separator = ' ';

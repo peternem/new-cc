@@ -34,11 +34,23 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 tile-container">
+
 		<?php 
+		
 		foreach($my_posts as $pc) { ?>
 			<?php if ($pc->post_name !== 'grow' ) { ?>
-		 		<div class="tile">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=175%C3%97175&w=175&h=175" class="img-responsive" />
+			
+		 		<div class="tile grayscale">
+		 				<div class="t-filter"></div>
+		 				<?php 
+		 					$image = get_field('thumbnail_link_image', $pc->ID);
+
+							if( !empty($image) ){ ?>
+								<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" class="img-responsive" />
+							<?php } else { ?>
+								<img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=175%C3%97175&w=175&h=175" class="img-responsive" />
+							<?php } ?>
+
 					<div class="title"><a class="" role="button" title="<?php echo $pc->post_title; ?>" href="/<?php echo $pc->post_name; ?>"><?php echo $pc->post_title; ?><i class="fa fa-angle-double-right"></i></a></div>
 				</div>
 			<?php } ?>

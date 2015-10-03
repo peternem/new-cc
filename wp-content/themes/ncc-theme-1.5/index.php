@@ -17,7 +17,7 @@ get_header(); ?>
 <?php if ( have_posts() ) : ?>
 	<?php if( is_home() ) { ?>           
 
-	<div class="nccIcon"><img src="/wp-content/uploads/2015/06/npcc-logo-temp-600x108.png" class="img-responsive"></div>
+	<div class="nccIcon"><img src="/wp-content/uploads/2015/09/NCClogo091815-750x-glow.png" class="img-responsive"></div>
 	<div class="locationArrow"><a id="learnMore" class="btn btn-primary btn-lg" href="#cta" role="button"><i class="fa fa-chevron-down"></i></a></div>
 	<nav id="npcc-bottom-nav" class="navbar navbar-inverse over-vid" role="navigation">
 	<?php 
