@@ -17,10 +17,26 @@ get_header(); ?>
 <?php if ( have_posts() ) : ?>
 	<?php if( is_home() ) { ?>           
 	<!-- Carousel  -->
-	<section id="Carousel" class="parallax-container white opacity" data-natural-height="1406" data-natural-width="2500" data-image-src="./wp-content/uploads/2015/10/Backsliding-2500x1406.jpg" data-speed="0.2" data-bleed="10" data-parallax="scroll" style="height: 750px;">
+	<section id="Carousel" class="parallax-container white opacity hero" data-natural-height="1406" data-natural-width="2500" data-image-src="/wp-content/uploads/2015/11/iStock_000009624367_Large-2500x-100.jpg" data-speed="0.2" data-bleed="10" data-parallax="scroll" style="height: 750px;">
+		<ul class="list-group spotlight map">
+			<li class="list-group-item">
+				<div class="badge"><a id="mapLink" href="#"><i class="fa fa-map-o"></i></a></div>
+				<div class="list-content">
+					<p><a href="https://www.google.com/maps/place/12800+Coal+Creek+Pkwy+SE,+Bellevue,+WA+98006/@47.5647848,-122.1722837,17z/data=!3m1!4b1!4m2!3m1!1s0x5490694fb572e6e1:0xadd0d4b13ced88cb" target="_blank">Get Directions to<br>Newport Covenant Church</a></p> 
+				</div>
+			</li>
+		</ul>
+		<ul class="list-group spotlight contact">
+			<li class="list-group-item">
+				<div class="badge"><a id="contactLink" href="#"><i class="fa fa-envelope-o"></i></a></div>
+				<div class="list-content">
+					<p><a href="/contact/" target="_blank">Contact Us</a></p> 
+				</div>
+			</li>
+		</ul>		
 		<div class="title-desc-inner">
 			<h1 class="entry-title">Hello!</h1>
-			<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan lectus vel turpis fermentum, dignissim venenatis lacus suscipit. Nam ullamcorper interdum elit, et blandit mauris sollicitudin eget. In hac habitasse platea dictumst.</p>
+			<p class="excerpt">Loving people to new life</p>
 			<ul>
 				
 				<li><a class="btn btn-primary" role="button" title="Video" href="#WhoWeAre">Learn More</a></li>
@@ -38,16 +54,7 @@ get_header(); ?>
 	<!-- Get Conected -->
 	<?php get_template_part('index-get-connected'); ?>
 	<!-- Events -->
-	<section id="Events" class="parallax-container black">
-		<div class="title-desc-inner">
-			<h1 class="entry-title">Events</h1>
-			<p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut accumsan lectus vel turpis fermentum, dignissim venenatis lacus suscipit. Nam ullamcorper interdum elit, et blandit mauris sollicitudin eget. In hac habitasse platea dictumst.</p>
-			<ul>
-				<li><a class="btn btn-primary" role="button" title="Video" href="#WhoWeAre">Learn More</a></li>
-				<li><a class="btn btn-primary" role="button" title="Audio" href="#Events">Events</a></li>
-			</ul>
-		</div>		
-	</section>
+	<?php get_template_part('index-events'); ?>
 	<!-- Media -->
 	<?php get_template_part('index-media'); ?>
 	<!-- Giving-->

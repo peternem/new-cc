@@ -1,5 +1,7 @@
 // JavaScript Document
+
 jQuery(document).ready(function() {
+    
 	function wpex_staticheader() {
 		var header_height = jQuery('.navbar').outerHeight();
 		jQuery('#page, #main').css({
@@ -71,7 +73,22 @@ jQuery(document).ready(function() {
 		jQuery('html, body').animate({scrollTop : 0},800);
 		return false;
 	});
-
+	
+	//Click event to scroll to top
+	jQuery('#contactLink').click(function(){
+		jQuery('ul.spotlight.contact').toggleClass('open-spot');
+		setTimeout(function() {
+			jQuery('ul.spotlight.contact').removeClass('open-spot');
+		}, 3000); // <-- time in milliseconds
+		return false;
+	});
+	jQuery('#mapLink').click(function(){
+		jQuery('ul.spotlight.map').toggleClass('open-spot');
+		setTimeout(function() {
+			jQuery('ul.spotlight.map').removeClass('open-spot');
+		}, 3000); // <-- time in milliseconds
+		return false;
+	});
 	
 	//Click event to scroll to top
 	jQuery('.navbar-collapse.collapse a').click(function(){
@@ -87,42 +104,47 @@ jQuery(document).ready(function() {
 		      if (target.length) {
 		        jQuery('html,body').animate({
 		         // scrollTop: target.offset().top - 200
-		          scrollTop: (target.offset().top-50)
+		          scrollTop: (target.offset().top)
 		        }, 1000);
 		        return false;
 		      }
 		    }
 		});
 	});
-    
-
-    
-	// Listen for orientation changes
-    
-    /**** Video Wrap resize on window screen size height change. ***/
-    var vidHeight = jQuery('.content-overlay').height();
-    jQuery('#big-video-vid, .vjs-tech').css({'height': vidHeight});
-
-    jQuery(document).scroll(function() {
-    	var widthx = jQuery(document).width();
-    	//console.log(widthx);
-    	//jQuery('#masthead').toggle(jQuery(this).scrollTop() > (vidHeight - 50));
-    	if ( widthx >= 1199 ) {
-    		jQuery('.home #masthead').toggle(jQuery(this).scrollTop() > (vidHeight - 50));
-    	}
+	
+	jQuery(function() {
+		jQuery('#Media a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = jQuery(this.hash);
+		      console.log(target)
+		      target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        jQuery('html,body').animate({
+		         // scrollTop: target.offset().top - 200
+		          scrollTop: (target.offset().top)
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		});
 	});
-    
+	
+	var hash = window.location.hash.substring(1)
+	var location = window.location;
+	console.log(hash);
+	if(hash){
+		window.onload = function (event) {
+		    //window.location.hash = "#" +hash;
+		    var yOffset = jQuery("#" +hash).offset().top;
+		    //jQuery('html,body').scrollTop(yOffset);
+		    jQuery('html,body').animate({
+		         // scrollTop: target.offset().top - 200
+		          scrollTop: (yOffset)
+		        }, 1000);
+		};
+	}
 
-//	var footer = jQuery('#globalFooter'),
-//    extra = 10; // In case you want to trigger it a bit sooner than exactly at the bottom.
-//	footer.css({ opacity: '0', display: 'block' });
-//	jQuery(window).scroll(function() {
-//		var scrolledLength = (jQuery(window).height() + extra ) + jQuery(window).scrollTop(), documentHeight = jQuery(document).height();
-//		//console.log( 'Scroll length: ' + scrolledLength + ' Document height: ' + documentHeight )
-//		if( scrolledLength >= documentHeight ) {
-//			footer.addClass('bottom').stop().animate({ bottom: '0', opacity: '1' }, 300);
-//		} else if ( scrolledLength <= documentHeight && footer.hasClass('bottom') ) {
-//			footer.removeClass('bottom').stop().animate({ bottom: '-100', opacity: '0' }, 300);
-//		}
-//	});
+
+		  
+	
 });
