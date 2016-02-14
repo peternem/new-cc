@@ -1,6 +1,20 @@
 // JavaScript Document
 
+// setting globals for grunt.js
+/* global Modernizr */
+
+
 jQuery(document).ready(function() {
+	
+	/* ==============================================
+	 Older browser support - Removes Modernd CSS3 Styling - SVG, CSS Animation, CSS Transform
+	 =============================================== */
+
+	if (!Modernizr.svg) {
+		jQuery('img[src*="svg"]').attr('src', function() {
+			return jQuery(this).attr('src').replace('.svg', '.png');
+		});
+	}
 	
 	// Add Bootstrap form classes to FS Contact Form Plugin
 	jQuery( '.fscf-div-clear .fscf-div-field-left' ).addClass( 'form-group' );
@@ -82,6 +96,23 @@ jQuery(document).ready(function() {
 	});
 	
 	//Click event to scroll to top
+	jQuery('#infoLink').click(function(){
+		jQuery('ul.spotlight.info').toggleClass('open-spot');
+		//jQuery('ul.spotlight.info .list-content').css({'height': 'auto'});
+		
+		var xyz ='ul.spotlight.info .list-content';
+		jQuery(xyz).toggleClass('auto-height');
+		
+		setTimeout(function() {
+			jQuery('ul.spotlight.info').removeClass('open-spot');
+			if(jQuery(xyz).hasClass('auto-height')) {
+				jQuery(xyz).removeClass('auto-height');
+			}
+			
+		}, 3000); // <-- time in milliseconds
+		return false;
+	});
+	
 	jQuery('#contactLink').click(function(){
 		jQuery('ul.spotlight.contact').toggleClass('open-spot');
 		setTimeout(function() {
@@ -104,6 +135,21 @@ jQuery(document).ready(function() {
 	
 	jQuery(function() {
 		jQuery('#Carousel a[href*=#]:not([href=#]), #main-menu a[href*=#]:not([href=#]), #menu-main-sub-nav a[href*=#]:not([href=#]), .carousel-caption a[href*=#]:not([href=#]), .jumbotron a[href*=#]:not([href=#]), .locationArrow a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+		      var target = jQuery(this.hash);
+		      target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        jQuery('html,body').animate({
+		         // scrollTop: target.offset().top - 200
+		          scrollTop: (target.offset().top)
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		});
+	});
+	jQuery(function() {
+		jQuery('#GetConnected [href*=#]:not([href=#])').click(function() {
 		    if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
 		      var target = jQuery(this.hash);
 		      target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');

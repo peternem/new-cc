@@ -15,6 +15,9 @@ wp-content/upgrade/
 wp-content/uploads/
 wp-content/wp-cache-config.php
 node_modules/
+wp-admin/
+node_modules/
+wp-includes/
 
 #################################################
 # IIS

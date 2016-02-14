@@ -22,61 +22,88 @@ get_header(); ?>
 <div class="container-fluid white">
 <section class="content-area">
 <p class="text-center">Catch up on a missed Sunday, share with a friend, or explore what the Bible has to say about different topics.</p>
-<?php 
+<script src="//connect.soundcloud.com/sdk.js"></script>
+<script>
+jQuery( document ).ready(function() {
+	
+SC.initialize({
+    client_id: "74279e5d2c33017a341409599e5ba429",
+    redirect_uri: "http://example.com/callback.html",
+});
 
-$member_group_terms = get_terms( 'sermon-type' );	
-// echo '<pre>';
-// print_r($member_group_terms);
-// echo '</pre>';
-foreach ( $member_group_terms as $member_group_term ) {
-	$member_group_query = new WP_Query( array(
-		'order' => 'DESC',
-		'posts_per_page' => -1,
-		'post_type' => 'sermon',
-		'post_status' => 'publish',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'sermon-type',
-				'field' => 'slug',
-				'terms' => array( $member_group_term->slug ),
-				'operator' => 'IN'
-			)
-		)
-	) );
-	?>
-    
+/**
+Once that's done you are all set and ready to call the SoundCloud API. 
+**/
+
+
+
+/**
+Call to the SoundCloud API. 
+Retrieves list of tracks, and displays a list with links to the tracks showing 'tracktitle' and 'track duration'
+**/
+
+var userId = 119963434; // user_id of Prutsonic
+
+	SC.get("/tracks", {
+	    user_id: userId,
+	    limit: 100
+	}, function (tracks) {
+	
+	    var tmp = '';
+	   
+		function millisToMinutesAndSeconds(millis) {
+		  var minutes = Math.floor(millis / 60000);
+		  var seconds = ((millis % 60000) / 1000).toFixed(0);
+		  return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+		}
+		
+		function daysAndMonths(factor) {
+	    	var date = new Date(factor);
+	    	return (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
+		}
+
+		var avatar;
+	    for (var i = 0; i < tracks.length; i++) {
+	    	if ( tracks[i].artwork_url == null) {  avatar = tracks[i].user.avatar_url} else { avatar = tracks[i].artwork_url }
+	    	
+	        tmp1 = '<td class="title"><img src="'+ avatar +'" class="artwork img-responsive" /><a href="' + tracks[i].permalink_url + '" class=\"perma-link\" target=\"_blank\">' + tracks[i].title + '</a></td>';
+	       	tmp1 += '<td class="date">' + daysAndMonths(tracks[i].created_at) + '</td>';
+	        tmp1 += '<td class="time">' + millisToMinutesAndSeconds(tracks[i].duration)+ '</td>';
+	        tmp1 += '<td class="tags">' + tracks[i].tag_list + '</td>';
+	    
+	       	jQuery("<tr/>").html(tmp1).appendTo("#track-list > tbody");
+	        jQuery("<li/>").html(tmp).appendTo("#track-list1");
+	    }
+	
+	});
+});
+</script>
     <div class="sermon-tables">
     <h2 class="panel-heading text-center" id="<?php echo $stid = '#'.strtolower($member_group_term->name); ?>"><?php echo $st = strtolower($member_group_term->name); ?></h2>
-    <table class="panel-body">
+    <table  id="track-list" class="table-striped">
     	<thead>
     		<tr>
     		<th>Title</th>
             <th>Date</th>
+            <th>Duration</th>
+            <th>Tags</th>
         	</tr>
         </thead>
-        <tbody>
-        
-    <?php
-    if ( $member_group_query->have_posts() ) : while ( $member_group_query->have_posts() ) : $member_group_query->the_post(); ?>
-        	<tr>
-        	<td class="title">
-				<a href="<?php echo the_permalink(); ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a>
-			</td>
-			<td class="date">
-				<div><?php echo the_date(); ?> <div>
-			</td>
-			</tr>
-       
-    <?php endwhile; endif; ?>
-    </tbody>
+        <tbody >
+    	</tbody>
     </table>
     </div>
-    <?php
-    // Reset things, for good measure
-    $member_group_query = null;
-    wp_reset_postdata();
-}
-	?>
 </section>
+
 </div>
+<section id="QuickLinks" class="cat-quick-links">
+<div class="container-fluid text-center">
+<h1 class="entry-title">Visit Our Sermon Page on SoundCloud</h1>
+<ul>
+	<li>
+		<a class="btn btn-primary" href="https://soundcloud.com/newport-covenant-church/tracks" title="Leadership" target="blank" role="button">Visit SoundCloud<i class="fa fa-external-link"></i></a>
+	</li>
+</ul>
+</div>
+</section>
 <?php get_footer(); ?>

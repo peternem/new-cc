@@ -30,6 +30,7 @@ foreach($my_posts as $pd) { ?>
 			<li><a class="btn btn-default" role="button" title="<?php echo $pd->post_title; ?>" href="/<?php echo $pd->post_name; ?>"><?php echo $pd->post_title; ?></a></li>
 	<?php } ?>
 <?php } ?>
+		<li><a class="btn btn-primary" role="button" title="Audio" id="scEvent" href="#Events">Events</a></li>
 </ul>
 <?php wp_reset_postdata(); ?>
 	</div>

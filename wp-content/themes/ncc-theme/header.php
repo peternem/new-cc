@@ -40,6 +40,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php include_once("analyticstracking.php") ?>
 <?php do_action( 'before' ); ?>
 
 

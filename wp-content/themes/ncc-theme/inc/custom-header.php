@@ -1,40 +1,4 @@
 <?php
-/**
- * Sample implementation of the Custom Header feature
- * http://codex.wordpress.org/Custom_Headers
- *
- * You can add an optional custom header image to header.php like so ...
-
-	<?php $header_image = get_header_image();
-	if ( ! empty( $header_image ) ) { ?>
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-			<img src="<?php header_image(); ?>" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="">
-		</a>
-	<?php } // if ( ! empty( $header_image ) ) ?>
-	
- * <!-- WP jumbotron with site-header bground image, site name and tag line -->
-	<!-- <header id="masthead" class="site-header" role="banner">
-		<div class="container ">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</a>
-		</div>
-	</header> --><!-- #masthead -->
- * 
- * <!-- Bootstrap jumbotron with site-header bground image, site name and tag line -->
-	<!-- <div class="jumbotron ">
-		<div class="container site-header">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</a>
-		</div>
-	</div> -->
- *
- * @author Matthias Thom | http://upplex.de
- * @package upBootWP 0.1
- */
 
 /**
  * Setup the WordPress core custom header feature.
@@ -49,9 +13,10 @@ function upbootwp_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'upbootwp_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000',
-		'width'                  => 1170,
-		'height'                 => 500,
-		'flex-height'            => true,
+		'width'                  => 365,
+		'height'                 => 54,
+		'flex-height'						 => true,
+		'flex-width'						 => true,
 		'wp-head-callback'       => 'upbootwp_header_style',
 		'admin-head-callback'    => 'upbootwp_admin_header_style',
 		'admin-preview-callback' => 'upbootwp_admin_header_image',

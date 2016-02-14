@@ -28,18 +28,19 @@ $argsd = array(
 		'category_name' 	=> $catName,
 		'meta_key'		=> 'event_start_date',
 		'orderby'			=> 'meta_value_num',
-		'order'             => 'DESC',
+		'order'             => 'ASC',
 		'post_status' 		=> 'publish',
 );
 $my_posts = get_posts($argsd);
 ?>
 <div class="sermon-tables">
- <h2 class="panel-heading text-center">Here is a list of our current event.</h2>
+ <h2 class="panel-heading text-center">Here is a list of our current events.</h2>
     <table class="panel-body">
     	<thead>
     		<tr>
     		<th>Event</th>
             <th>Date</th>
+             <th>Time</th>
         	</tr>
         </thead>
         <tbody>
@@ -55,13 +56,37 @@ foreach($my_posts as $pc) { ?>
 		<?php
 
 		if(get_field('event_start_date')){
-			echo "<em>". date("F d, Y", strtotime(get_field('event_start_date', $pc->ID)))."</em>";
+			$startDate = get_field('event_start_date', $pc->ID);
+			$endDate = get_field('event_end_date', $pc->ID);
+			
+			$startUtc = date(strtotime($startDate));
+			$endUtc = date(strtotime($endDate));
+			
+			$cleanStartDate = date("F d, Y", strtotime($startDate));
+			echo "<em>". $cleanStartDate ."</em>";
+			
+			if ((!$endUtc == $startUtc) || ($endUtc > $startUtc))  {
+				if ((!$endUtc < $startUtc)) {
+					$cleanEndDate = date("F d, Y", strtotime($endDate));
+					echo "<em> - ".$cleanEndDate."</em>";
+				}
+				
+			}
 		}
 		?>
 		<?php
-// 		if(get_field('event_end_date')){
-// 			echo "<em>". date("F d, Y", strtotime(get_field('event_end_date', $pc->ID)))."</em>";
-// 		}
+		
+		?></div>
+		</td>
+		<td class="time">
+			<div class="listDate">
+		<?php
+
+		if(get_field('event_time')){
+			echo "<em>". get_field('event_time', $pc->ID)."</em>";
+		}
+		?>
+		<?php
 		?></div>
 		</td>
 		</tr>

@@ -145,6 +145,9 @@ p {
 .spotlight.contact {
   top: 208px;
 }
+.spotlight.info {
+  top: 298px;
+}
 .spotlight.open-spot {
   right: 0;
   -webkit-transition: right 0.5s ease-in-out;
@@ -181,7 +184,7 @@ p {
   display: block;
   float: left;
   height: 6rem;
-  overflow: auto;
+  overflow: hidden;
   width: 20rem;
   margin-bottom: 0;
 }
@@ -196,9 +199,8 @@ p {
   color: #e8e8e8;
   text-decoration: underline;
 }
-.spotlight .fa.fa-info {
-  display: table-cell;
-  vertical-align: middle;
+.spotlight .list-content.auto-height {
+  height: auto;
 }
 .black h1 {
   color: #000;
@@ -611,7 +613,7 @@ p {
 .sermon-tables {
   display: table;
   margin: 0 auto;
-  max-width: 690px;
+  max-width: 980px;
   text-align: left;
   width: 100%;
 }
@@ -631,12 +633,32 @@ p {
 .sermon-tables td {
   text-align: left;
   padding: 5px 10px;
+  vertical-align: top;
 }
 .sermon-tables .title {
-  width: 65%;
+  width: 20%;
+}
+.sermon-tables .tags {
+  width: 10%;
 }
 .sermon-tables .date {
-  width: 35%;
+  width: 10%;
+}
+.sermon-tables .time {
+  width: 10%;
+}
+.sermon-tables img.artwork {
+  float: left;
+  height: auto;
+  max-width: 100px;
+  width: 100%;
+}
+.sermon-tables .perma-link {
+  float: left;
+  margin-left: 1em;
+}
+.fa.fa-external-link {
+  margin-left: 0.5em;
 }
 .eventDate {
   margin-bottom: 2em;
@@ -1163,6 +1185,9 @@ p.excerpt {
   .spotlight.contact {
     top: 100px;
   }
+  .spotlight.info {
+    top: 168px;
+  }
   .navbar .dropdown-menu {
     font-size: 16px;
   }
@@ -1257,6 +1282,9 @@ p.excerpt {
     left: 15%;
     top: 50%;
     transform: translateX(-10%) translateY(-50%);
+  }
+  .sermon-tables img.artwork {
+    display: none;
   }
 }
 @media (max-width: 480px) {
@@ -1358,6 +1386,14 @@ p.excerpt {
     display: inline-block;
     width: 100%;
     padding: 1rem 0;
+  }
+  .sermon-tables {
+    font-size: 10px;
+    padding: 0;
+  }
+  .sermon-tables td,
+  .sermon-tables th {
+    padding: 0px 3px;
   }
 }
 @media (max-width: 320px) {

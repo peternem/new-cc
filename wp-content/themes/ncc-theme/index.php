@@ -33,7 +33,19 @@ get_header(); ?>
 					<p><a href="/contact/" target="_blank">Contact Us</a></p> 
 				</div>
 			</li>
-		</ul>		
+		</ul>
+		<ul class="list-group spotlight info">
+			<li class="list-group-item">
+				<div class="badge"><a id="infoLink" href="#"><i class="fa fa-info"></i></a></div>
+				<div class="list-content">
+					<p class="sm-text"><b>Office Info</b></br>
+					M-F: 9:00am – 4:00pm
+12800 Coal Creek Parkway SE
+Bellevue WA, 98006
+Phone: (425) 747-0515</p> 
+				</div>
+			</li>
+		</ul>			
 		<div class="title-desc-inner">
 			<h1 class="entry-title">Hello!</h1>
 			<h2>Welcome to Newport Covenant Church Online!</h2>

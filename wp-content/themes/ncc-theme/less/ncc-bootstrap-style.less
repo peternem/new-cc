@@ -187,6 +187,14 @@ p {
     &.contact {
 	    top: 208px;
 	}
+	&.info {
+	    top: 298px;
+	    //width: 30rem;
+	    .list-content {
+	    	//width: 30rem;
+	    }
+	    
+	}
     &.open-spot {
     	right: 0;
 	    -webkit-transition: right 0.5s ease-in-out;
@@ -223,7 +231,7 @@ p {
 	    display: block;
 	    float: left;
 	    height: 6rem;
-	    overflow: auto;
+	    overflow: hidden;
 	    width: 20rem;
 	    margin-bottom: 0;
 	    p {
@@ -237,10 +245,9 @@ p {
 	   			text-decoration: underline;
 	   		}
 	    }
-	}
-	.fa.fa-info {
-	    display: table-cell;
-	    vertical-align: middle;
+	    &.auto-height {
+			height: auto;
+		}
 	}
 }
 
@@ -664,7 +671,7 @@ p {
 .sermon-tables {
     display: table;
     margin: 0 auto;
-    max-width: 690px;
+    max-width: 980px;
     text-align: left;
     width: 100%;
     .panel-heading {
@@ -683,14 +690,36 @@ p {
 	td { 
 		text-align: left;
 		padding: 5px 10px;
+		vertical-align: top;
 	}
-	.title {
-		width: 65%;
+	.title, {
+		width: 20%;
+	}
+	.tags {
+		width: 10%;
 	}
 	.date {
-		width: 35%;
+		width: 10%;
+	}
+	.time {
+		width: 10%;
+	}
+	img.artwork {
+	    float: left;
+	    height: auto;
+	    max-width: 100px;
+	    width: 100%;
+	}
+	.perma-link {
+	    float: left;
+	    margin-left: 1em;
 	}
 }
+
+.fa.fa-external-link {
+    margin-left: 0.5em;
+}
+
 .eventDate {
 	margin-bottom: 2em;
 	em {
@@ -1260,6 +1289,9 @@ p.excerpt {
 		&.contact {
 		    top: 100px;
 		}
+		&.info {
+		    top: 168px;
+		}
 	}
 	
 	.navbar {
@@ -1379,6 +1411,9 @@ p.excerpt {
 		    transform: translateX(-10%) translateY(-50%);
 	   	}
 	}
+	.sermon-tables img.artwork {
+		display: none;
+	}
 }
 
 @media (max-width: 480px) {
@@ -1478,6 +1513,13 @@ p.excerpt {
 		    width: 100%;
 		    padding: 1rem 0;
 		}		
+	}
+	.sermon-tables {
+		font-size: 10px;
+    	padding: 0;
+		td, th {
+		    padding: 0px 3px;
+		}
 	}
 }
 @media (max-width: 320px) {
