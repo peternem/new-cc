@@ -131,8 +131,108 @@ p {
  * Container Styling
  * 
  *************************************************/
+.next-table {
+  margin: 2em auto;
+  max-width: 600px;
+  width: 100%;
+}
+.next-table td,
+.next-table th {
+  padding: 0.5em 1em;
+}
+.spotlight.alert {
+  width: 35rem;
+  left: -288px;
+  right: initial;
+  -webkit-transition: left 0.5s ease-in-out;
+  -moz-transition: left 0.5s ease-in-out;
+  -o-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+}
+.spotlight.alert.open-spot-2 {
+  left: 0;
+  -webkit-transition: left 0.5s ease-in-out;
+  -moz-transition: left 0.5s ease-in-out;
+  -o-transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease-in-out;
+}
+.spotlight.alert.open-spot-2 .badge {
+  height: 10rem;
+}
+.spotlight.alert.open-spot-2 .badge a {
+  height: 10rem;
+}
+.spotlight.alert.open-spot-2 .badge a .fa.fa-exclamation-triangle {
+  margin-top: 3.5rem;
+}
+.spotlight.alert li {
+  width: 100%;
+}
+.spotlight.alert li .list-content {
+  float: left;
+  width: auto;
+}
+.spotlight.alert li .list-content p {
+  padding: 5px 10px;
+}
+.spotlight.alert li .list-content p a {
+  margin-left: 6px;
+}
+.spotlight.alert li .badge {
+  float: right;
+  height: 6rem;
+}
+.spotlight.alert li a {
+  height: 6rem;
+  font-style: italic;
+  font-weight: bold;
+}
+.spotlight.alert a:hover {
+  color: #f3633c;
+}
+.video-list {
+  display: table;
+  margin: 0 auto;
+  max-width: 1280px;
+  text-align: center;
+  width: 100%;
+}
+.video-list .video-col-12 {
+  width: 100%;
+}
+.video-list .video-col-12 > p {
+  margin: 0 auto 4em;
+  max-width: 680px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.video-list .video-col-4 {
+  float: left;
+  width: 33.333%;
+}
+.video-list h1 {
+  margin: 0 auto 1em;
+  max-width: 60%;
+  width: 100%;
+}
+.video-list .link-list {
+  list-style: outside none none;
+  margin: 1em auto;
+  padding: 0;
+}
+.ie9 .spotlight,
+.ie10 .spotlight,
+.ie11 .spotlight {
+  right: -200px;
+  width: 28rem;
+}
+.ie9 .spotlight .list-group-item > .badge,
+.ie10 .spotlight .list-group-item > .badge,
+.ie11 .spotlight .list-group-item > .badge {
+  width: 8rem;
+}
 .spotlight {
-  position: absolute;
+  position: fixed;
   right: -200px;
   top: 115px;
   width: 26rem;
@@ -207,6 +307,15 @@ p {
 }
 .black p {
   color: #000;
+}
+.non-parallax-container {
+  min-height: 400px;
+  padding: 4em 0;
+  position: relative;
+}
+.parallax-container.white.video {
+  padding: 0;
+  position: relative;
 }
 .parallax-container-single {
   height: 375px;
@@ -350,7 +459,8 @@ p {
 }
 .cat-quick-links p.excerpt {
   font-size: 18px;
-  margin-bottom: 4rem;
+  margin: 0 auto 4rem;
+  max-width: 66%;
 }
 .cat-quick-links ul {
   display: table;
@@ -638,6 +748,13 @@ p {
 .sermon-tables .title {
   width: 20%;
 }
+.sermon-tables .title > a {
+  vertical-align: top;
+}
+.sermon-tables .title-content {
+  float: left;
+  width: 75%;
+}
 .sermon-tables .tags {
   width: 10%;
 }
@@ -653,18 +770,29 @@ p {
   max-width: 100px;
   width: 100%;
 }
+.sermon-tables p {
+  margin: 0 0 0 1em;
+  line-height: 1.25em;
+}
 .sermon-tables .perma-link {
-  float: left;
   margin-left: 1em;
 }
 .fa.fa-external-link {
   margin-left: 0.5em;
 }
-.eventDate {
-  margin-bottom: 2em;
+.eventDetails {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.eventDate em {
-  margin-left: 1rem;
+.eventDetails li {
+  margin-bottom: 1em;
+}
+.eventDetails b {
+  margin-right: 1rem;
+}
+.eventDetails span {
+  margin-right: 1em;
 }
 .leadership-tables {
   display: table;
@@ -1088,6 +1216,19 @@ p.excerpt {
 .footer-nav-main a:hover {
   color: #f3633c;
 }
+@media (max-width: 1024px) {
+  .video-list .video-col-4 {
+    width: 100%;
+    max-width: 100%;
+  }
+  div.spotlight.alert {
+    width: 35rem;
+    left: -288px;
+  }
+  .single .video-list .video-col-4 {
+    margin-bottom: 4em;
+  }
+}
 @media (max-width: 1199px) and (min-width: 992px) {
   .home #masthead {
     display: block;
@@ -1131,6 +1272,10 @@ p.excerpt {
   }
 }
 @media (max-width: 980px) {
+  .spotlight.alert {
+    width: 35rem;
+    left: -307px;
+  }
   .navbar .navbar-brand {
     max-width: 70%;
   }
@@ -1154,6 +1299,9 @@ p.excerpt {
   }
 }
 @media (max-width: 768px) {
+  .sermon-tables .title-content {
+    width: 69%;
+  }
   .parallax-container-single .caption {
     -webkit-transform: translateX(-50%) translateY(-150%);
     -moz-transform: translateX(-50%) translateY(-150%);
@@ -1166,6 +1314,12 @@ p.excerpt {
   .spotlight {
     top: 25px;
     width: 24rem;
+  }
+  .spotlight.alert li .badge {
+    height: 4rem;
+  }
+  .spotlight.alert li a {
+    height: 4rem;
   }
   .spotlight .list-group-item > .badge {
     width: 4rem;
@@ -1181,12 +1335,6 @@ p.excerpt {
     font-size: 0.875em;
     line-height: 14px;
     padding: 6px 15px;
-  }
-  .spotlight.contact {
-    top: 100px;
-  }
-  .spotlight.info {
-    top: 168px;
   }
   .navbar .dropdown-menu {
     font-size: 16px;
@@ -1285,6 +1433,38 @@ p.excerpt {
   }
   .sermon-tables img.artwork {
     display: none;
+  }
+  .sermon-tables .artwork-link {
+    display: none;
+  }
+  .sermon-tables .perma-link {
+    margin-left: 0;
+  }
+  .sermon-tables p {
+    margin: 0 0 1em;
+  }
+  .sermon-tables .title-content {
+    width: 100%;
+  }
+  .sermon-tables .title {
+    width: 33.333%;
+  }
+  .sermon-tables .date,
+  .sermon-tables .time {
+    width: 16.666%;
+  }
+  .spotlight.map {
+    top: 105px;
+  }
+  .spotlight.info {
+    top: 230px;
+  }
+  .spotlight.contact {
+    top: 168px;
+  }
+  .video-list .video-col-4 {
+    width: 100%;
+    max-width: 100%;
   }
 }
 @media (max-width: 480px) {
@@ -1393,7 +1573,7 @@ p.excerpt {
   }
   .sermon-tables td,
   .sermon-tables th {
-    padding: 0px 3px;
+    padding: 0.25em 0.25em;
   }
 }
 @media (max-width: 320px) {

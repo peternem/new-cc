@@ -16,6 +16,8 @@ get_header(); ?>
 	while ( have_posts() ) : the_post();
 		if(is_single( 'our-leadership' ) ) { 
 			get_template_part( 'content', 'single-leadership' );
+		} else if (is_single('videos')) {
+			get_template_part( 'content', 'single-videos' );
 		} else {
 			get_template_part( 'content', 'single' );
 		}
@@ -54,7 +56,7 @@ $argsd = array(
 );
 $my_posts = get_posts($argsd);
 foreach($my_posts as $p) { 
-	if ($p->post_name == $catName  && $catName !== 'care') { ?>
+	if ($p->post_name == $catName) { ?>
 	<section id="QuickLinks" class="cat-quick-links">
 		<div class="container-fluid text-center">
 			<h1 class="entry-title"><?php echo $p->post_title; ?></h1>
@@ -65,9 +67,13 @@ foreach($my_posts as $p) {
 <?php if ($catName == "who-we-are") { ?>
 	<li><a class="btn btn-primary" role="button" title="Leadership" href="/leadership/">Leadership</a></li>
 	<?php } ?>
+<?php if ($catName == "media") { ?>
+	<li><a class="btn btn-primary" role="button" title="Audio" href="/sermon/">Audio</a></li>
+<!--        <li><a class="btn btn-primary" role="button" title="Leadership" href="/leadership/">Leadership</a></li>-->
+<?php } ?>
 <?php 
 foreach($my_posts as $pc) { ?>
-	<?php if ($pc->post_name !== $catName && $pc->post_name !== $current_post_slug) { ?>
+	<?php if ($pc->post_name !== $catName && $pc->post_name !== $current_post_slug ) { ?>
 	<li><a class="btn btn-primary" role="button" title="<?php echo $pc->post_title; ?>" href="/<?php echo $pc->post_name; ?>"><?php echo $pc->post_title; ?></a></li>
 	<?php } ?>
 <?php } ?>

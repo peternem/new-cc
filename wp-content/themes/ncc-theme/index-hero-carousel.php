@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="/wp-content/uploads/2015/07/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero=" alt="Second slide">
+          <img class="second-slide" src="/wp-content/uploads/2015/07/hero_test_landscape_1920x540.jpg" class="img-responsive section-hero" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>Family</h1>

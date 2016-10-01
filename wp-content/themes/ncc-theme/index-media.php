@@ -19,7 +19,7 @@ foreach($my_posts as $p) {
 <?php } ?>
 <ul>
 	<li><a class="btn btn-primary" role="button" title="Audio" href="/sermon/">Audio</a></li>
-	<li><a class="btn btn-primary" role="button" title="Video" href="/sermon/">Video</a></li>
+	<li><a class="btn btn-primary" role="button" title="Video" href="/videos">Video</a></li>
 </ul>
 <?php wp_reset_postdata(); ?>
 	</div>
