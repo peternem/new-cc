@@ -35,6 +35,284 @@ p {
   margin-left: 10px;
 }
 /***********************************
+ * WP Widget Calendar Styling 
+ **********************************/
+#wp-calendar {
+  width: 100%;
+}
+#wp-calendar thead th {
+  text-align: center;
+}
+#wp-calendar tbody {
+  text-align: center;
+}
+#wp-calendar tfoot {
+  display: none;
+}
+#wp-calendar tfoot td {
+  text-align: center;
+}
+#wp-calendar #today {
+  color: orange;
+}
+/***********************************
+ * WP Widget Search Styling 
+ **********************************/
+.widget_search .form-group {
+  width: 100%;
+}
+.widget_search .search-field.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+/***********************************
+ * Esprersso Events Styling 
+ **********************************/
+.big-event-title-hdr {
+  font-size: 24px;
+}
+h2.spco-steps-big-hdr {
+  color: #514e4e !important;
+}
+.ee-reg-form-attendee-dv .ee-reg-qstn {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.ee-reg-form-attendee-dv p.ee-reg-form-qstn-grp-desc-pg {
+  padding: 0 0 1em;
+  margin: -1em 0 1em;
+}
+.ee-reg-form-attendee-dv p.lt-grey-text {
+  color: #514e4e;
+}
+.ee-reg-form-attendee-dv .ee-question-desc,
+.ee-reg-form-attendee-dv .ee-question-option-desc {
+  color: #514e4e;
+  font-weight: 400;
+}
+#ee-single-page-checkout-dv .medium-lbl {
+  width: 100% !important;
+  min-width: inherit !important;
+  max-width: 100%;
+}
+.ee-registration-details-h3 {
+  color: #f15024;
+  text-align: left;
+  text-transform: capitalize;
+  border-bottom: 1px solid #eeeeee;
+  margin: 0 0 4rem;
+  padding-bottom: 11.5px;
+  font-size: 30px;
+}
+.ee-registration-details-dv .ee-required-text,
+.spco-ticket-info-dv .ee-required-text {
+  font-size: 0.75em;
+}
+.ee-registration-details-dv .ee-table,
+.spco-ticket-info-dv .ee-table,
+.ee-registration-details-dv table,
+.spco-ticket-info-dv table {
+  border: 2px solid #eee;
+  width: 100%;
+  margin: 2rem auto;
+}
+.ee-registration-details-dv .ee-table td,
+.spco-ticket-info-dv .ee-table td,
+.ee-registration-details-dv table td,
+.spco-ticket-info-dv table td,
+.ee-registration-details-dv .ee-table th,
+.spco-ticket-info-dv .ee-table th,
+.ee-registration-details-dv table th,
+.spco-ticket-info-dv table th {
+  padding: 1rem;
+}
+.ee-registration-details-dv .ee-table thead tr,
+.spco-ticket-info-dv .ee-table thead tr,
+.ee-registration-details-dv table thead tr,
+.spco-ticket-info-dv table thead tr {
+  border-bottom: 2px solid #eee;
+}
+.ee-registration-details-dv .ee-table .tiny-text,
+.spco-ticket-info-dv .ee-table .tiny-text,
+.ee-registration-details-dv table .tiny-text,
+.spco-ticket-info-dv table .tiny-text {
+  font-size: .75em;
+}
+.ee-registration-details-dv h5,
+.spco-ticket-info-dv h5,
+.ee-registration-details-dv .h5,
+.spco-ticket-info-dv .h5 {
+  font-size: 24px;
+}
+.espresso_events-template .espresso .content-area,
+.single-espresso_events .espresso .content-area,
+.single-espresso_venues .espresso .content-area,
+.page-template-espresso-events .espresso .content-area {
+  padding-top: 6rem;
+}
+.espresso_events-template .espresso .content-area .ee-event-img-dv,
+.single-espresso_events .espresso .content-area .ee-event-img-dv,
+.single-espresso_venues .espresso .content-area .ee-event-img-dv,
+.page-template-espresso-events .espresso .content-area .ee-event-img-dv,
+.espresso_events-template .espresso .content-area .ee-venue-img-dv,
+.single-espresso_events .espresso .content-area .ee-venue-img-dv,
+.single-espresso_venues .espresso .content-area .ee-venue-img-dv,
+.page-template-espresso-events .espresso .content-area .ee-venue-img-dv {
+  display: none;
+}
+.espresso_events-template .espresso .content-area .venue-gmap,
+.single-espresso_events .espresso .content-area .venue-gmap,
+.single-espresso_venues .espresso .content-area .venue-gmap,
+.page-template-espresso-events .espresso .content-area .venue-gmap {
+  margin-top: 2rem;
+}
+.espresso_events-template .espresso .content-area .comments-link,
+.single-espresso_events .espresso .content-area .comments-link,
+.single-espresso_venues .espresso .content-area .comments-link,
+.page-template-espresso-events .espresso .content-area .comments-link {
+  display: none;
+}
+.espresso_events-template .espresso .widget-sidebar,
+.single-espresso_events .espresso .widget-sidebar,
+.single-espresso_venues .espresso .widget-sidebar,
+.page-template-espresso-events .espresso .widget-sidebar {
+  padding-top: 6rem;
+}
+.espresso_events-template .espresso .widget-sidebar .widget-area,
+.single-espresso_events .espresso .widget-sidebar .widget-area,
+.single-espresso_venues .espresso .widget-sidebar .widget-area,
+.page-template-espresso-events .espresso .widget-sidebar .widget-area {
+  min-height: 50vh;
+  padding: 1.25em;
+}
+.espresso_events-template .espresso .widget-sidebar .widget-area .widget,
+.single-espresso_events .espresso .widget-sidebar .widget-area .widget,
+.single-espresso_venues .espresso .widget-sidebar .widget-area .widget,
+.page-template-espresso-events .espresso .widget-sidebar .widget-area .widget {
+  margin-bottom: 4rem;
+}
+.espresso_events-template .espresso .ee-event-img,
+.single-espresso_events .espresso .ee-event-img,
+.single-espresso_venues .espresso .ee-event-img,
+.page-template-espresso-events .espresso .ee-event-img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+.espresso_events-template .tkt-slctr-tbl,
+.single-espresso_events .tkt-slctr-tbl,
+.single-espresso_venues .tkt-slctr-tbl,
+.page-template-espresso-events .tkt-slctr-tbl {
+  border: 1px solid #ddd;
+}
+.espresso_events-template .tkt-slctr-tbl thead tr,
+.single-espresso_events .tkt-slctr-tbl thead tr,
+.single-espresso_venues .tkt-slctr-tbl thead tr,
+.page-template-espresso-events .tkt-slctr-tbl thead tr {
+  border-bottom: 1px solid #ccc;
+}
+.espresso_events-template .tkt-slctr-tbl thead tr th,
+.single-espresso_events .tkt-slctr-tbl thead tr th,
+.single-espresso_venues .tkt-slctr-tbl thead tr th,
+.page-template-espresso-events .tkt-slctr-tbl thead tr th {
+  padding: 0.75em;
+}
+.espresso_events-template .tkt-slctr-tbl .tckt-slctr-tbl-tr,
+.single-espresso_events .tkt-slctr-tbl .tckt-slctr-tbl-tr,
+.single-espresso_venues .tkt-slctr-tbl .tckt-slctr-tbl-tr,
+.page-template-espresso-events .tkt-slctr-tbl .tckt-slctr-tbl-tr {
+  border-bottom: 1px solid #ccc;
+}
+.espresso_events-template .tkt-slctr-tbl .tckt-slctr-tbl-tr td,
+.single-espresso_events .tkt-slctr-tbl .tckt-slctr-tbl-tr td,
+.single-espresso_venues .tkt-slctr-tbl .tckt-slctr-tbl-tr td,
+.page-template-espresso-events .tkt-slctr-tbl .tckt-slctr-tbl-tr td {
+  padding: 0.75em;
+}
+.espresso_events-template .ee-event-img-dv,
+.single-espresso_events .ee-event-img-dv,
+.single-espresso_venues .ee-event-img-dv,
+.page-template-espresso-events .ee-event-img-dv {
+  margin-bottom: 5rem;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul,
+.single-espresso_events .ee-upcoming-events-widget-ul,
+.single-espresso_venues .ee-upcoming-events-widget-ul,
+.page-template-espresso-events .ee-upcoming-events-widget-ul {
+  padding: 0;
+  margin: 0;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-li,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-li,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-li,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-li {
+  overflow: auto;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img {
+  display: block;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5 {
+  margin: 1em 0 1rem;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5 + #ee-event-datetimes-ul-1110,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5 + #ee-event-datetimes-ul-1110,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5 + #ee-event-datetimes-ul-1110,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-title-h5 + #ee-event-datetimes-ul-1110 {
+  float: right;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv {
+  float: left;
+  width: 25%;
+  margin-right: 1em;
+}
+@media (max-width: 1024px) {
+  .espresso_events-template .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+  .single-espresso_events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+  .single-espresso_venues .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv,
+  .page-template-espresso-events .ee-upcoming-events-widget-ul .ee-upcoming-events-widget-img-dv {
+    display: none;
+  }
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-event-datetimes-li,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-event-datetimes-li,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-event-datetimes-li,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-event-datetimes-li {
+  float: left;
+  width: 100%;
+  font-size: 12px;
+}
+.espresso_events-template .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+.single-espresso_events .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+.single-espresso_venues .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+.page-template-espresso-events .ee-upcoming-events-widget-ul .ee-event-datetimes-ul {
+  padding: 0;
+  float: left;
+  width: 68%;
+}
+@media (max-width: 1024px) {
+  .espresso_events-template .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+  .single-espresso_events .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+  .single-espresso_venues .ee-upcoming-events-widget-ul .ee-event-datetimes-ul,
+  .page-template-espresso-events .ee-upcoming-events-widget-ul .ee-event-datetimes-ul {
+    width: 100%;
+  }
+}
+.espresso_events-template .post-navigation,
+.single-espresso_events .post-navigation,
+.single-espresso_venues .post-navigation,
+.page-template-espresso-events .post-navigation {
+  margin-bottom: 4rem;
+}
+/***********************************
  * Navigation Styling 
  **********************************/
 .nav .overview-link {
@@ -415,12 +693,19 @@ p {
   margin-top: 0;
   margin-bottom: 5rem;
 }
+.parallax-container .sub-title {
+  margin-top: 60px;
+  margin-bottom: 32px;
+}
 .parallax-container p.excerpt {
   font-size: 18px;
   margin-bottom: 4rem;
 }
 .parallax-container.white h1,
 .parallax-container.white p {
+  color: #fff;
+}
+.parallax-container.white .sub-title {
   color: #fff;
 }
 .parallax-container ul {
@@ -754,6 +1039,9 @@ p {
 .sermon-tables .title-content {
   float: left;
   width: 75%;
+}
+.sermon-tables p.excerpt {
+  font-size: 14px;
 }
 .sermon-tables .tags {
   width: 10%;

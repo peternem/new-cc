@@ -60,6 +60,11 @@ function upbootwp_setup() {
     register_nav_menu('footer_aux_navigation', 'Footer aux navigation');
 
     /**
+     * Enable support for title
+     */
+    add_theme_support('title-tag');
+
+    /**
      * Enable support for Post Formats
      */
     add_theme_support('post-formats', array('aside', 'image', 'video', 'quote', 'link'));
@@ -72,6 +77,7 @@ function upbootwp_setup() {
         'default-image' => '',
     )));
 }
+
 
 /* -------------------------------------- */
 /* Add SVG Support to media library
@@ -229,7 +235,7 @@ function upbootwp_breadcrumbs() {
             if (get_post_type() != 'post') {
                 $post_type = get_post_type_object(get_post_type());
                 $slug = $post_type->rewrite;
-                echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a></li> ' . $delimiter . ' ';
+                echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->name . '</a></li> ' . $delimiter . ' ';
                 echo $before . get_the_title() . $after;
             } else {
                 $cat = get_the_category();
@@ -239,7 +245,7 @@ function upbootwp_breadcrumbs() {
             }
         } elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
             $post_type = get_post_type_object(get_post_type());
-            echo $before . $post_type->labels->singular_name . $after;
+            echo $before . $post_type->labels->name . $after;
         } elseif (is_attachment()) {
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);
@@ -284,64 +290,16 @@ function upbootwp_breadcrumbs() {
 }
 
 // Register custom footer and sidbar widget widgets
-register_sidebar(array(
-    'name' => __('Global Footer 1', 'upbootwp'),
-    'id' => 'sidebar-4',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Left Side.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-md-4 col-lg-4 center-block widget %2$s"><div class="panel panel-default"><div class="panel-body">',
-    'after_widget' => "</div></div></aside>",
-    'before_title' => '<div class="panel-heading"><h3 class="panel-title">',
-    'after_title' => '</div></h3>',
-));
+
 
 register_sidebar(array(
-    'name' => __('Global Footer 2', 'upbootwp'),
-    'id' => 'sidebar-5',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Center.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-md-4 col-lg-4 center-block widget %2$s"><div class="panel panel-default"><div class="panel-body">',
-    'after_widget' => "</div></div></aside>",
-    'before_title' => '<div class="panel-heading"><h3 class="panel-title">',
-    'after_title' => '</div></h3>',
-));
-
-register_sidebar(array(
-    'name' => __('Global Footer 3', 'upbootwp'),
-    'id' => 'sidebar-6',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Right Side.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-md-4 col-lg-4 center-block widget %2$s"><div class="panel panel-default"><div class="panel-body">',
-    'after_widget' => "</div></div></aside>",
-    'before_title' => '<div class="panel-heading"><h3 class="panel-title">',
-    'after_title' => '</div></h3>',
-));
-
-register_sidebar(array(
-    'name' => __('Global Footer - Left', 'upbootwp'),
-    'id' => 'sidebar-7',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Left Side.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-lg-12 widget %2$s">',
-    'after_widget' => "</aside>",
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
-));
-
-register_sidebar(array(
-    'name' => __('Global Footer - Middle', 'upbootwp'),
-    'id' => 'sidebar-8',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Center.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-lg-12 center-block widget %2$s">',
+    'name' => __('Events Sidebar', 'upbootwp'),
+    'id' => 'sidebar-2',
+    'description' => __('Located in right column of single event pages.', 'upbootwp'),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget' => '</aside>',
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
-));
-
-register_sidebar(array(
-    'name' => __('Global Footer - Right', 'upbootwp'),
-    'id' => 'sidebar-9',
-    'description' => __('Found at the bottom of every page (except 404s, optional homepage and full width) as the footer. Right Side.', 'upbootwp'),
-    'before_widget' => '<aside id="%1$s" class="col-lg-12 center-block widget %2$s">',
-    'after_widget' => "</aside>",
-    'before_title' => '<h3>',
-    'after_title' => '</h3>',
+    'before_title' => '<h4 class="widget-title">',
+    'after_title' => '</h4>',
 ));
 
 // Post Attachment image function. Image URL for CSS Background.
@@ -404,7 +362,7 @@ function the_post_image($size = thumbnail) {
             echo '' . $attachmentimage . '';
         }
     } else {
-        echo '<img src="' . get_bloginfo('template_url') . '/img/no-attachment-large.gif" />';
+        echo '<img src="' . get_template_directory_uri() . '/img/no-attachment-large.gif" />';
     }
 }
 

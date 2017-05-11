@@ -76,7 +76,7 @@ get_header();
                     <div class="badge"><a id="infoLink" href="#" title="Office Info"><i class="fa fa-info"></i></a></div>
                     <div class="list-content">
                         <p class="sm-text"><b>Office Info</b></br>
-                            M-F: 9:00am – 4:00pm
+                            M-F: 9:00am - 4:00pm
                             12800 Coal Creek Parkway SE
                             Bellevue WA, 98006
                             Phone: (425) 747-0515</p> 
@@ -87,10 +87,8 @@ get_header();
                 <h1 class="entry-title">Hello!</h1>
                 <h2>Welcome to Newport Covenant Church Online!</h2>
                 <ul>
-
                     <li><a class="btn btn-primary" role="button" title="Who We Are" href="#WhoWeAre">Learn More</a></li>
                     <li><a class="btn btn-default" role="button" title="ServiceTimes and Locations" href="#ServiceTimesAndLocations">Visit Us</a></li>
-                    <li><a class="btn btn-default" role="button" title="Jubilee" href="#Jubilee">Jubilee</a></li>
                     <li><a class="btn btn-primary" role="button" title="Events" href="#Events">Events</a></li>
                 </ul>
             </div>
@@ -106,7 +104,7 @@ get_header();
         <!-- Care -->
         <?php get_template_part('index-care'); ?>
         <!-- CTA Promo -->
-        <?php get_template_part('index-jubilee-cta'); ?>
+        <?php //get_template_part('index-jubilee-cta'); ?>
         <!-- Get Conected -->
         <?php get_template_part('index-get-connected'); ?>
         <!-- Events -->
@@ -115,7 +113,7 @@ get_header();
         <?php get_template_part('index-media'); ?>
         <!-- Giving-->
         <?php get_template_part('index-giving'); ?>
-        </section>
+
         <!-- Pre-School -->
         <?php get_template_part('index-pre-school'); ?>
     <?php } else { ?>

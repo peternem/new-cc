@@ -52,9 +52,7 @@ get_header(); ?>
 							the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
 							?>
 						</div>
-						<div class="col-md-12">
-							<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
-						</div>
+
 					</div><!-- .page-content -->
 				</section><!-- .error-404 -->
 			</main><!-- #main -->

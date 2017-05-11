@@ -9,6 +9,15 @@ jQuery(document).ready(function () {
     jQuery('.truncate').succinct({
         size: 60
     });
+    
+    jQuery('.truncate-175').succinct({
+        size: 175
+    });
+    
+    jQuery('.sermon-tables .excerpt').succinct({
+        size: 175
+    });
+    
 
     if (document.documentMode) {
         //console.log(document.documentElement.className += ' ie' + document.documentMode);

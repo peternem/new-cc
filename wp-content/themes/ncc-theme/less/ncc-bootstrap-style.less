@@ -60,6 +60,208 @@ p {
     margin-left: 10px;
 }
 
+/***********************************
+ * WP Widget Calendar Styling 
+ **********************************/
+
+#wp-calendar {
+    width: 100%;
+    thead {
+        th {
+            text-align: center;
+        }
+    }
+    tbody {
+        text-align: center;
+    }
+    tfoot {
+        display: none;
+        td {
+            text-align: center;
+        }
+    }
+    #today {
+        color: orange;
+    }
+}
+
+/***********************************
+ * WP Widget Search Styling 
+ **********************************/
+
+.widget_search {
+    .form-group {
+        width: 100%;
+    }
+    .search-field.form-control {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+/***********************************
+ * Esprersso Events Styling 
+ **********************************/
+
+.big-event-title-hdr {
+    font-size: 24px;
+}
+
+h2.spco-steps-big-hdr {
+    color: #514e4e !important;
+}
+
+.ee-reg-form-attendee-dv {
+    .ee-reg-qstn {
+        margin-bottom: 1rem;
+        font-weight: bold;
+    }
+    p.ee-reg-form-qstn-grp-desc-pg {
+        padding: 0 0 1em;
+        margin: -1em 0 1em;
+    }
+    p.lt-grey-text {
+        color: #514e4e;
+    }
+    .ee-question-desc, .ee-question-option-desc {
+        color: #514e4e;
+        font-weight: 400;
+    }
+}
+
+#ee-single-page-checkout-dv .medium-lbl {
+    width: 100% !important;
+    min-width: inherit !important;
+    max-width: 100%;
+}
+
+.ee-registration-details-h3 {
+    color: #f15024;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 1px solid #eeeeee;
+    margin: 0 0 4rem;
+    padding-bottom: 11.5px;
+    font-size: 30px;
+}
+
+.ee-registration-details-dv, .spco-ticket-info-dv {
+    .ee-required-text {
+        font-size: 0.75em;
+    }
+    .ee-table, table {
+        border: 2px solid #eee;
+        width: 100%;
+        margin: 2rem auto;
+        td, th {
+            padding: 1rem;
+        }
+        thead tr {
+            border-bottom: 2px solid #eee
+        }
+        .tiny-text {
+            font-size: .75em;
+        }
+    }
+    h5, .h5 {
+        font-size: 24px;
+    }
+}
+
+.espresso_events-template, .single-espresso_events, .single-espresso_venues, .page-template-espresso-events {
+    .espresso {
+        .content-area {
+            padding-top: 6rem;
+            .ee-event-img-dv, .ee-venue-img-dv {
+                display: none;
+            }
+            .venue-gmap {
+                margin-top: 2rem;
+            }
+            .comments-link {
+                display: none;
+            }
+        }
+        .widget-sidebar {
+            padding-top: 6rem;
+            .widget-area {
+                min-height: 50vh;
+                padding: 1.25em;
+                .widget {
+                    margin-bottom: 4rem;
+                }
+            }
+        }
+        .ee-event-img {
+            max-width: 100%;
+            width: auto;
+            height: auto;
+        }
+    }
+
+    .tkt-slctr-tbl {
+        border: 1px solid #ddd;
+        thead {
+            tr {
+                border-bottom: 1px solid #ccc;
+                th {
+                    padding: 0.75em;
+                }
+            }
+        }
+        .tckt-slctr-tbl-tr {
+            border-bottom: 1px solid #ccc;
+        }
+        .tckt-slctr-tbl-tr td {
+            padding: 0.75em;
+        }
+    }
+
+
+    .ee-event-img-dv {
+        margin-bottom: 5rem;
+    }
+    .ee-upcoming-events-widget-ul {
+        padding: 0;
+        margin: 0;
+        .ee-upcoming-events-widget-li {
+            overflow: auto;
+        }
+        .ee-upcoming-events-widget-img {
+            display: block;
+        }
+        .ee-upcoming-events-widget-title-h5 {
+            margin: 1em 0 1rem;
+            + #ee-event-datetimes-ul-1110 {
+                float: right;
+            }
+        }
+
+        .ee-upcoming-events-widget-img-dv {
+            float: left;
+            width: 25%;
+            margin-right: 1em;
+            @media (max-width: 1024px) {
+                display: none;
+            }
+        }
+        .ee-event-datetimes-li {
+            float: left;
+            width: 100%;
+            font-size: 12px;
+        }
+        .ee-event-datetimes-ul {
+            padding: 0;
+            float: left;
+            width: 68%;
+            @media (max-width: 1024px) {
+                width: 100%;
+            }
+        }
+    }
+    .post-navigation {
+        margin-bottom: 4rem;
+    }
+}
 
 /***********************************
  * Navigation Styling 
@@ -479,12 +681,19 @@ p {
         margin-top: 0;
         margin-bottom: 5rem;
     }
+    .sub-title {
+        margin-top: 60px;
+        margin-bottom: 32px;
+    }
     p.excerpt {
         font-size: 18px;
         margin-bottom: 4rem;
     }
     &.white {
         h1, p {
+            color: #fff;
+        }
+        .sub-title {
             color: #fff;
         }
     }
@@ -823,6 +1032,9 @@ p {
     .title-content {
         float: left;
         width: 75%;
+    }
+    p.excerpt {
+        font-size: 14px;
     }
     .tags {
         width: 10%;
@@ -1624,7 +1836,7 @@ p.excerpt {
     .video-list .video-col-4 {
         width: 100%;
         max-width: 100%;
-        
+
     }
 }
 
